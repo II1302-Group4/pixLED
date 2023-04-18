@@ -48,7 +48,6 @@
   grid-template-rows: repeat(64, 1fr);
   grid-template-columns: repeat(64, 1fr);
 }
-
 .grid-item {
   border: 1px solid #000000;
   text-align: center;

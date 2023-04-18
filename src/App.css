@@ -43,13 +43,13 @@
 
 .container {
   display: grid;
-  width: 500px;
-  height: 500px;
+  width: 80vw;
+  height: 80vw;
   grid-template-rows: repeat(64, 1fr);
   grid-template-columns: repeat(64, 1fr);
 }
 
 .grid-item {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   text-align: center;
 }

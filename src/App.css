@@ -45,10 +45,11 @@
   display: grid;
   width: 500px;
   height: 500px;
+  grid-template-rows: repeat(64, 1fr);
+  grid-template-columns: repeat(64, 1fr);
 }
 
 .grid-item {
-  padding: 1em;
   border: 1px solid #ddd;
   text-align: center;
 }

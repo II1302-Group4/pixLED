@@ -8,6 +8,7 @@ export default function MatrixGrid(props) {
     container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
     for (let c = 0; c < rows * cols; c++) {
       let cell = document.createElement("div");
+      cell.classList.add("grid-item");
       cell.style.backgroundColor = "white";
       container.appendChild(cell);
     }

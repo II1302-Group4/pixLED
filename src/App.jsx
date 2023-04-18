@@ -6,7 +6,7 @@ import MatrixGrid from "./presenters/matrixGridPresenter";
 function App() {
   return (
     <>
-      <MainPresenter />;
+      <MainPresenter />
       <MatrixGrid />
     </>
   );

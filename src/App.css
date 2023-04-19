@@ -41,10 +41,11 @@
   color: #888;
 }
 
+/* Matrix grid, please do not change height units */
 .container {
   display: grid;
-  width: 50vw;
-  height: 50vh;
+  width: 80vw;
+  height: 80vw;
   grid-template-rows: repeat(64, 1fr);
   grid-template-columns: repeat(64, 1fr);
 }
@@ -57,9 +58,17 @@
   grid-template-columns: repeat(8, 1fr);
 
 }
+
+/* A regular cell of the matrix grid */
 .grid-item {
   border: 1px solid #000000;
-  text-align: center;
+}
+/* Selected cell will get a golden highlight */
+.chosen-item {
+  border: 1px solid gold;
+  box-shadow: 1px 1px 8px 8px rgb(255, 238, 0);
+  position: relative;
+  z-index: 1000;
 }
 
 

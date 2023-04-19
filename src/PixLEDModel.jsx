@@ -3,27 +3,37 @@ class PixLEDModel {
     this.observers = [];
     this.gridArray = gridArray;
     this.paletteColor = null;
+    this.chosenLED = null;
   }
 
+  
   addObserver(callback) {
     this.observers = [...this.observers, callback];
   }
-
+  
   setPaletteColor(color) {
     this.paletteColor = color;
   }
-
+  
   setGridArray(gridArray) {
     this.gridArray = gridArray;
     this.notifyObservers();
   }
-
+  
   removeObserver(callback) {
     this.observers = this.observers.filter((observer) => observer !== callback);
   }
-
+  
   updateColorInDatabase(color, ledNumber) {
     this.notifyObservers({ ledColor: color, ledNumber });
+  }
+
+  /***
+   * Makes the clicked LED "selected"
+   * @param {int} index LEd's index in the matrix array
+   */
+  selectLED(index) {
+    this.chosenLED = index;
   }
 
   notifyObservers(payload) {

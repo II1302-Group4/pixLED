@@ -8,7 +8,6 @@ export default function matrixGridView(props) {
   }
   function hideButton() {
     document.getElementById("showMatrixButton").style.display="none";
-    
   }
 
   return (

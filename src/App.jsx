@@ -4,6 +4,8 @@ import MainPresenter from "./presenters/mainPresenter";
 import MatrixGrid from "./presenters/matrixGridPresenter";
 import { GoogleLogin } from "./components/GoogleLogin";
 import { auth } from "./firebaseModel";
+import ColorPallete from './presenters/colorPalettePresenter';
+
 
 function App(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,8 +29,10 @@ function App(props) {
             <GoogleLogin isLoggedIn={isLoggedIn} />
             <MainPresenter />
             <MatrixGrid model={props.model} />
+            <ColorPallete  model={props.model}/>
         </>
     );
+
 }
 
 export default App;

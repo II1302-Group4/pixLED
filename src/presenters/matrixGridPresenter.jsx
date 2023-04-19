@@ -21,6 +21,14 @@ export default function MatrixGrid(props) {
   function updateColor(color, ledNumber) {
     props.model.updateColorInDatabase(color, ledNumber);
   }
+  
+  /**
+   * Asks model to select a pixel
+   * @param {int} ledNumber LED's index in the matrix array
+   */
+  function selectLED(ledNumber) {
+    props.model.selectLED(ledNumber)
+  }
 
-  return <MatrixGridView matrixGrid={matrixGrid} updateColor={updateColor} />;
+  return <MatrixGridView matrixGrid={matrixGrid} updateColor={updateColor} selectLED={selectLED} chosenLED={props.model.chosenLED}/>;
 }

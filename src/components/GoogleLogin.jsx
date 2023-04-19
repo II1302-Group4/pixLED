@@ -27,19 +27,21 @@ export const GoogleLogin = (props) => {
         <div>
             {props.isLoggedIn ? (
                 <Button
-                    variant="outlined"
-                    color="primary"
+                    class = "login-with-google-btn"
+                    //variant="outlined"
+                    //color="primary"
                     onClick={signOutWithGoogle}
                 >
-                    Sign out from PixLED
+                    Sign out
                 </Button>
             ) : (
                 <Button
-                    variant="outlined"
-                    color="primary"
+                    class = "login-with-google-btn"
+                    //variant="outlined"
+                    //color="primary"
                     onClick={signInWithGoogle}
                 >
-                    Sign in on PixLED
+                    Login with Google
                 </Button>
             )}
         </div>

@@ -24,9 +24,9 @@ function App(props) {
 
     return (
         <>
+            <GoogleLogin isLoggedIn={isLoggedIn} />
             <MainPresenter />
             <MatrixGrid model={props.model} />
-            <GoogleLogin isLoggedIn={isLoggedIn} />
         </>
     );
 }

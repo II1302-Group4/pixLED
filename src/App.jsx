@@ -3,11 +3,11 @@ import { useState } from "react";
 import MainPresenter from "./presenters/mainPresenter";
 import MatrixGrid from "./presenters/matrixGridPresenter";
 
-function App() {
+function App(props) {
   return (
     <>
-      <MainPresenter />
-      <MatrixGrid />
+      <MainPresenter />;
+      <MatrixGrid model={props.model} />
     </>
   );
 }

@@ -2,23 +2,25 @@ import React from "react";
 import MatrixGridView from "../views/matrixGridView";
 
 export default function MatrixGrid(props) {
-  function matrixMake(rows, cols) {
-    const container = document.querySelector(".container");
-    container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-    container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-    for (let c = 0; c < rows * cols; c++) {
-      let cell = document.createElement("div");
-      cell.style.backgroundColor = "white";
-      container.appendChild(cell);
-    }
+  const [matrixGrid, setMatrixGrid] = React.useState(props.model.gridArray);
 
-    const grid = container.querySelectorAll("div");
+  React.useEffect(wasCreatedACB, []);
 
-    for (let i = 0; i < grid.length; i++)
-      grid[i].addEventListener("click", function onHover() {
-        grid[i].style.backgroundColor = "red";
-      });
+  function observerACB() {
+    setMatrixGrid(props.model.gridArray);
   }
 
-  return <MatrixGridView makeMatrix={matrixMake} />;
+  function wasCreatedACB() {
+    props.model.addObserver(observerACB);
+    function isTakenDownACB() {
+      props.model.removeObserver(observerACB);
+    }
+    return isTakenDownACB;
+  }
+
+  function updateColor(color, ledNumber) {
+    props.model.updateColorInDatabase(color, ledNumber);
+  }
+
+  return <MatrixGridView matrixGrid={matrixGrid} updateColor={updateColor} />;
 }

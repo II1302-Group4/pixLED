@@ -2,17 +2,19 @@ import React from "react";
 import "../App.css";
 
 export default function matrixGridView(props) {
-  function makeMatrix() {
-    hideButton();
-    props.makeMatrix(64, 64);
+  function LED(color, index) {
+    return (
+      <div
+        key={index}
+        onClick={clickOnLED}
+        id={index}
+        style={{ backgroundColor: `${color}` }}
+        className="grid-item"
+      ></div>
+    );
   }
-  function hideButton() {
-    document.getElementById("showMatrixButton").style.display="none";
-  }
+  function clickOnLED(event) {
+    props.updateColor("red", event.target.id);
 
-  return (
-    <div className="container">
-      <button id="showMatrixButton" onClick={makeMatrix}>click me!</button>
-    </div>
-  );
+  return <div className="container">{props.matrixGrid.map(LED)}</div>;
 }

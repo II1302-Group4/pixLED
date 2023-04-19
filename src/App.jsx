@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import MainPresenter from "./presenters/mainPresenter";
 import MatrixGrid from "./presenters/matrixGridPresenter";
-//import { GoogleLogin } from "./components/GoogleLogin";
+import { GoogleLogin } from "./components/GoogleLogin";
 import { auth } from "./firebaseModel";
 import ColorPallete from './presenters/colorPalettePresenter';
 
@@ -26,7 +26,7 @@ function App(props) {
 
     return (
         <>
-            {/* <GoogleLogin isLoggedIn={isLoggedIn} /> */}
+            {<GoogleLogin isLoggedIn={isLoggedIn} />}
             <MainPresenter />
             <ColorPallete  model={props.model}/>
             <MatrixGrid model={props.model} />

@@ -25,7 +25,7 @@ export default function matrixGridView(props) {
     }
   }
   function clickOnLED(event) {
-    props.updateColor("lime", event.target.id);
+    props.updateColor("blue", event.target.id);
     props.selectLED(event.target.id);
   }
   return <div className="container">{props.matrixGrid.map(LED)}</div>;

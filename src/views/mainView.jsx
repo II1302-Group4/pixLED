@@ -13,7 +13,6 @@ function MainView(props){
             <div className="grid"></div>
 
             {/* placeholder for submit*/}
-            <span className='submit'><button>submit</button></span>
         </div>
             
     )

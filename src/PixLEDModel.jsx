@@ -6,26 +6,28 @@ class PixLEDModel {
     this.chosenLED = null;
   }
 
-  
   addObserver(callback) {
     this.observers = [...this.observers, callback];
   }
-  
+
   setPaletteColor(color) {
     this.paletteColor = color;
+    this.notifyObservers();
   }
-  
+
   setGridArray(gridArray) {
     this.gridArray = gridArray;
     this.notifyObservers();
   }
-  
+
   removeObserver(callback) {
     this.observers = this.observers.filter((observer) => observer !== callback);
   }
-  
+
   updateColorInDatabase(color, ledNumber) {
     this.notifyObservers({ ledColor: color, ledNumber });
+    this.setPaletteColor(null);
+    this.selectLED(null);
   }
 
   /***
@@ -34,6 +36,7 @@ class PixLEDModel {
    */
   selectLED(index) {
     this.chosenLED = index;
+    this.notifyObservers();
   }
 
   notifyObservers(payload) {

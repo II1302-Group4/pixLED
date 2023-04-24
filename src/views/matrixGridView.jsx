@@ -3,30 +3,54 @@ import "../App.css";
 
 export default function matrixGridView(props) {
   function LED(color, index) {
-    if(index == props.chosenLED){
+    if (index == props.chosenLED && props.chosenColor) {
+      return (
+        <div
+          key={index}
+          id={index}
+          style={{ backgroundColor: `${props.chosenColor}` }}
+          className="chosen-item"
+        ></div>
+      );
+    } else if (index == props.chosenLED) {
       return (
         <div
           key={index}
           id={index}
           style={{ backgroundColor: `${color}` }}
           className="chosen-item"
-          ></div>
-          );
-        } else {
-          return (
-            <div
-            key={index}
-            onClick={clickOnLED}
-            id={index}
-            style={{backgroundColor: `${color}` }}
-            className="grid-item"
+        ></div>
+      );
+    } else {
+      return (
+        <div
+          key={index}
+          onClick={clickOnLED}
+          id={index}
+          style={{ backgroundColor: `${color}` }}
+          className="grid-item"
         ></div>
       );
     }
   }
   function clickOnLED(event) {
-    props.updateColor("blue", event.target.id);
     props.selectLED(event.target.id);
   }
-  return <div className="container">{props.matrixGrid.map(LED)}</div>;
+
+  function submit() {
+    props.updateColor(props.chosenColor, props.chosenLED);
+  }
+  return (
+    <div className="container">
+      {props.matrixGrid.map(LED)}{" "}
+      <span className="submit">
+        <button
+          onClick={submit}
+          disabled={!(props.chosenLED && props.chosenColor)}
+        >
+          Submit
+        </button>
+      </span>
+    </div>
+  );
 }

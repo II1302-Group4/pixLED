@@ -45,7 +45,8 @@ export default function matrixGridView(props) {
       <div className="container">{props.matrixGrid.map(LED)}</div>
       <button
         onClick={submit}
-        disabled={!(props.chosenLED && props.chosenColor)}
+        disabled={!(props.chosenLED && props.chosenColor) || props.timer != props.timeout }
+        
       >
         Submit
       </button>

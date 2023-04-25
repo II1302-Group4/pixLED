@@ -4,10 +4,16 @@ class PixLEDModel {
     this.gridArray = gridArray;
     this.paletteColor = null;
     this.chosenLED = null;
+    this.timer = 15;
   }
 
   addObserver(callback) {
     this.observers = [...this.observers, callback];
+  }
+
+  updateTimer(time) {
+    this.timer = time;
+    this.notifyObservers();
   }
 
   setPaletteColor(color) {

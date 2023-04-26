@@ -61,17 +61,14 @@ export default function MatrixGrid(props) {
   }
 
   return (
-    <>
-      <div align="center">Timer :{timer}</div>
-      <MatrixGridView
-        matrixGrid={matrixGrid}
-        updateColor={updateColor}
-        selectLED={selectLED}
-        chosenLED={chosenLed}
-        chosenColor={pickedColor}
-        timer={timer}
-        timeout={timeout}
-      />
-    </>
+    <MatrixGridView
+      matrixGrid={matrixGrid}
+      updateColor={updateColor}
+      selectLED={selectLED}
+      chosenLED={chosenLed}
+      chosenColor={pickedColor}
+      timer={timer}
+      timeout={timeout}
+    />
   );
 }

@@ -26,23 +26,12 @@ export const GoogleLogin = (props) => {
     return (
         <div>
             {props.isLoggedIn ? (
-                <Button
-                    class = "login-with-google-btn"
-                    //variant="outlined"
-                    //color="primary"
-                    onClick={signOutWithGoogle}
-                >
+                <button className="submit-btn" onClick={signOutWithGoogle}>
                     Sign out
-                </Button>
+                </button>
             ) : (
-                <Button
-                    class = "login-with-google-btn"
-                    //variant="outlined"
-                    //color="primary"
-                    onClick={signInWithGoogle}
-                >
-                    Login with Google
-                </Button>
+                <button className="submit-btn"
+                 onClick={signInWithGoogle}>Login with Google</button>
             )}
         </div>
     );

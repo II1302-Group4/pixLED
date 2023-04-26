@@ -27,7 +27,7 @@ function App(props) {
     <>
       {<GoogleLogin isLoggedIn={isLoggedIn} />}
       <MainPresenter />
-      <MatrixGrid model={props.model} />
+      <MatrixGrid model={props.model} isLoggedIn={isLoggedIn} />
       <ColorPallete model={props.model} />
     </>
   );

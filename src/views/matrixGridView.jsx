@@ -47,7 +47,7 @@ export default function matrixGridView(props) {
         onClick={submit}
         disabled={
           !(props.chosenLED && props.chosenColor) ||
-          props.timer != props.timeout
+          props.timer != props.timeout || !props.isLoggedIn
         }
       >
         {props.timer == props.timeout ? (

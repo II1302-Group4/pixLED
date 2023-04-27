@@ -23,8 +23,12 @@ function App(props) {
 
   return (
     <div>
-      <TopBarPresenter className="top-bar" model={props.model}/>
-      <MainPresenter model={props.model}/>
+      <div className="top-bar">
+        <TopBarPresenter model={props.model}/>
+      </div>
+      <div className="main-components">
+        <MainPresenter model={props.model}/>
+      </div>
 
       {/* <div className="top-bar">
         <GoogleLogin isLoggedIn={isLoggedIn} />

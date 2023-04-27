@@ -2,7 +2,7 @@ import MainView from '../views/mainView'
 
 function MainPresenter(props) {
     return (
-        <div className="top-bar">
+        <div>
             <MainView model={props.model}/>
         </div>
     )

@@ -69,6 +69,7 @@ export default function MatrixGrid(props) {
       chosenColor={pickedColor}
       timer={timer}
       timeout={timeout}
+      isLoggedIn={props.isLoggedIn}
     />
   );
 }

@@ -27,7 +27,7 @@ function App(props) {
     <><div className="top-bar">
       {<GoogleLogin isLoggedIn={isLoggedIn} />}
       <MainPresenter /> </div> <div className="main-components">
-      <MatrixGrid model={props.model} />
+      <MatrixGrid model={props.model} isLoggedIn={isLoggedIn}/>
       <ColorPallete model={props.model} />
       </div>
     </>

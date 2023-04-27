@@ -1,11 +1,12 @@
-import TopBarView from '../views/topBarView'
+import React from "react";
+import TopBarView from "../views/topBarView";
 
 function topBarPresenter(props) {
-    return (
-        <div>
-            <TopBarView isLoggedIn={props.isLoggedIn}/>
-        </div>
-    )
+  return (
+    <div>
+      <TopBarView model={props.model} isLoggedIn={props.isLoggedIn} />
+    </div>
+  );
 }
 
 export default topBarPresenter;

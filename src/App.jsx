@@ -24,20 +24,17 @@ function App(props) {
   return (
     <div>
       <div className="top-bar">
-        <TopBarPresenter model={props.model}/>
+        <TopBarPresenter 
+          model={props.model}
+          isLoggedIn={isLoggedIn}
+        />
       </div>
       <div className="main-components">
-        <MainPresenter model={props.model}/>
+        <MainPresenter 
+          model={props.model}
+          isLoggedIn={isLoggedIn}  
+        />
       </div>
-
-      {/* <div className="top-bar">
-        <GoogleLogin isLoggedIn={isLoggedIn} />
-        <MainPresenter /> 
-      </div> 
-      <div className="main-components">
-      <MatrixGrid model={props.model} isLoggedIn={isLoggedIn}/>
-      <ColorPallete model={props.model} />
-      </div> */}
     </div>
   );
 }

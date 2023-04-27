@@ -4,7 +4,7 @@ import LoginView from "../views/loginView";
 function loginPresenter(props) {
     return (
         <div>
-            {!props.isLoggedIn && <LoginView onLogin={props.onLogin} />}
+            {<LoginView onLogin={props.onLogin} isLoggedIn={props.isLoggedIn}/>}
         </div>
     );
 };

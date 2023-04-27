@@ -8,7 +8,7 @@ function topBarView(props){
                 <img src={Logo} width="100vh" height="100vh"/>
             </div>
 
-            <LoginPresenter />
+            <LoginPresenter isLoggedIn={props.isLoggedIn}/>
             
         </div>  
     )

@@ -1,6 +1,5 @@
 import React from "react";
 import MatrixGridView from "../views/matrixGridView";
-import matrixGridView from "../views/matrixGridView";
 
 function matrixGridPresenter(props) {
   const [matrixGrid, setMatrixGrid] = React.useState(props.model.gridArray);

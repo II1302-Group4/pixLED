@@ -3,7 +3,7 @@ import TopBarView from '../views/topBarView'
 function topBarPresenter(props) {
     return (
         <div>
-            <TopBarView />
+            <TopBarView isLoggedIn={props.isLoggedIn}/>
         </div>
     )
 }

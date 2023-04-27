@@ -1,6 +1,5 @@
 import React from "react";
 import { auth } from "../firebaseModel";
-import { Button } from "@mui/material";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { signOut } from "firebase/auth";
 
@@ -26,23 +25,13 @@ export const GoogleLogin = (props) => {
     return (
         <div>
             {props.isLoggedIn ? (
-                <Button
-                    className = "login-with-google-btn"
-                    //variant="outlined"
-                    //color="primary"
-                    onClick={signOutWithGoogle}
-                >
+                <button className="txt-btn" onClick={signOutWithGoogle}>
                     Sign out
-                </Button>
+                </button>
             ) : (
-                <Button
-                    className = "login-with-google-btn"
-                    //variant="outlined"
-                    //color="primary"
-                    onClick={signInWithGoogle}
-                >
+                <button className="txt-btn" onClick={signInWithGoogle}>
                     Login with Google
-                </Button>
+                </button>
             )}
         </div>
     );

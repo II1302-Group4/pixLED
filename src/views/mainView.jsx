@@ -5,8 +5,8 @@ function MainView(props){
 
     return(
         <div>
-            <div className="title"> 
-                <img src={Logo} width="100" height="100"/>
+            <div className="logo"> 
+                <img src={Logo} width="100vh" height="100vh"/>
             </div>
 
             {/* placeholder for grid */}

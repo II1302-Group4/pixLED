@@ -7,7 +7,6 @@ export default function colorPallete(props) {
       return (
         <div
           key={index}
-          onClick={clickOnColor}
           id={color}
           style={{ backgroundColor: `${color}` }}
           className="chosen-item"
@@ -29,8 +28,16 @@ export default function colorPallete(props) {
   }
 
   return (
-    <div className="colorPalette-container">
-      {props.colorPaletteArray.map(Color)}
+    <div className="window" id="test">
+      <div className="title-bar">
+        <div className="title-bar-text">PixLED Palette</div>
+      </div>
+      <div className="window-body">
+        <div className="colorPalette-container">
+          {props.colorPaletteArray.map(Color)}
+        </div>
+      </div>
+      <button>hello world</button>
     </div>
   );
 }

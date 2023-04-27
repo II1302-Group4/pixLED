@@ -23,7 +23,7 @@ export default function colorPallete(props) {
 
   const [colorPalette] = React.useState(colorPaletteArray);
   const [pickedColor, setPickedColor] = React.useState(
-    props.model.palettecolor
+    props.model.paletteColor
   );
 
   React.useEffect(wasCreatedACB, []);

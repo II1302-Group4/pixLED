@@ -37,7 +37,7 @@ function colorPaletteView(props) {
                     {props.colorPaletteArray.map(color)}
                 </div>
             </div>
-            <button className="txt-btn">Submit</button>
+        
         </div>
     );
 }

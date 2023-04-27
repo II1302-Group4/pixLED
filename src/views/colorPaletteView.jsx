@@ -1,8 +1,8 @@
 import React from "react";
 import "../App.css";
 
-export default function colorPallete(props) {
-    function Color(color, index) {
+function colorPaletteView(props) {
+    function color(color, index) {
         if (color == props.pickedColor) {
             return (
                 <div
@@ -28,16 +28,18 @@ export default function colorPallete(props) {
     }
 
     return (
-        <div class="window" id="test">
-            <div class="title-bar">
-                <div class="title-bar-text">PixLED Palette</div>
+        <div className="window" id="test">
+            <div className="title-bar">
+                <div className="title-bar-text">PixLED Palette</div>
             </div>
-            <div class="window-body">
-                <div class="colorPalette-container">
-                    {props.colorPaletteArray.map(Color)}
+            <div className="window-body">
+                <div className="colorPalette-container">
+                    {props.colorPaletteArray.map(color)}
                 </div>
             </div>
-            <button class="txt-btn">Submit</button>
+            <button className="txt-btn">Submit</button>
         </div>
     );
 }
+
+export default colorPaletteView;

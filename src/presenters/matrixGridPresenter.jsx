@@ -1,7 +1,8 @@
 import React from "react";
 import MatrixGridView from "../views/matrixGridView";
+import matrixGridView from "../views/matrixGridView";
 
-export default function MatrixGrid(props) {
+function matrixGridPresenter(props) {
   const [matrixGrid, setMatrixGrid] = React.useState(props.model.gridArray);
   const [pickedColor, setPickedColor] = React.useState(
     props.model.paletteColor
@@ -73,3 +74,5 @@ export default function MatrixGrid(props) {
     />
   );
 }
+
+export default matrixGridPresenter;

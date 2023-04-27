@@ -21,7 +21,7 @@ const signOutWithGoogle = async () => {
     }
 };
 
-export const GoogleLogin = (props) => {
+function loginView(props) {
     return (
         <div>
             {props.isLoggedIn ? (
@@ -36,3 +36,5 @@ export const GoogleLogin = (props) => {
         </div>
     );
 };
+
+export default loginView;

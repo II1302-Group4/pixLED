@@ -1,10 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import MainPresenter from "./presenters/mainPresenter";
-import MatrixGrid from "./presenters/matrixGridPresenter";
-import { GoogleLogin } from "./components/GoogleLogin";
 import { auth } from "./firebaseModel";
-import ColorPallete from "./presenters/colorPalettePresenter";
+import MainPresenter from "./presenters/mainPresenter";
+import TopBarPresenter from "./presenters/topBarPresenter";
 
 function App(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,13 +22,19 @@ function App(props) {
   }, []);
 
   return (
-    <><div className="top-bar">
-      {<GoogleLogin isLoggedIn={isLoggedIn} />}
-      <MainPresenter /> </div> <div className="main-components">
+    <div>
+      <TopBarPresenter className="top-bar" model={props.model}/>
+      <MainPresenter model={props.model}/>
+
+      {/* <div className="top-bar">
+        <GoogleLogin isLoggedIn={isLoggedIn} />
+        <MainPresenter /> 
+      </div> 
+      <div className="main-components">
       <MatrixGrid model={props.model} isLoggedIn={isLoggedIn}/>
       <ColorPallete model={props.model} />
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 }
 

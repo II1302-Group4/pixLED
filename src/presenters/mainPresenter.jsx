@@ -1,12 +1,10 @@
 import MainView from '../views/mainView'
 
-function MainPresenter() {
-
-
-return (
-    <div className="top-bar">
-        <MainView/>
+function MainPresenter(props) {
+    return (
+        <div className="top-bar">
+            <MainView model={props.model}/>
         </div>
-)
+    )
 }
 export default MainPresenter;

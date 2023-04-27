@@ -1,20 +1,19 @@
-import Logo from '../assets/logo.png'
+import MatrixGridPresenter from "../presenters/matrixGridPresenter";
+import ColorPalettePresenter from "../presenters/colorPalettePresenter";
 
 function MainView(props){
-
-
     return(
         <div>
-            <div className="logo"> 
-                <img src={Logo} width="100vh" height="100vh"/>
+            <div className="grid">
+                <MatrixGridPresenter model={props.model}/>
             </div>
 
-            {/* placeholder for grid */}
-            <div className="grid"></div>
+            <div className="colorPalette">
+                <ColorPalettePresenter model={props.model}/>
+            </div>
 
-            {/* placeholder for submit*/}
-        </div>
-            
+        </div>  
     )
 }
+
 export default MainView;

@@ -1,12 +1,12 @@
 import React from "react";
-import { GoogleLogin } from "../components/GoogleLogin";
+import LoginView from "../views/loginView";
 
-const LoginPresenter = (props) => {
+function loginPresenter(props) {
     return (
         <div>
-            {!props.isLoggedIn && <GoogleLogin onLogin={props.onLogin} />}
+            {!props.isLoggedIn && <LoginView onLogin={props.onLogin} />}
         </div>
     );
 };
 
-export default LoginPresenter;
+export default loginPresenter;

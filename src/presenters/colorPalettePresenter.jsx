@@ -1,7 +1,7 @@
 import React from "react";
-import ColorPalleteView from "../views/colorPalleteView";
+import ColorPaletteView from "../views/colorPaletteView";
 
-export default function colorPallete(props) {
+function colorPalettePresenter(props) {
   const colorPaletteArray = [
     "#FFFFFF",
     "#C0C0C0",
@@ -45,10 +45,12 @@ export default function colorPallete(props) {
   }
 
   return (
-    <ColorPalleteView
+    <ColorPaletteView
       colorPaletteArray={colorPalette}
       colorPicked={chosenColor}
       pickedColor={pickedColor}
     />
   );
 }
+
+export default colorPalettePresenter;

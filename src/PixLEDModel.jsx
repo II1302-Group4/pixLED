@@ -5,6 +5,8 @@ class PixLEDModel {
     this.paletteColor = null;
     this.chosenLED = null;
     this.timer = 15;
+    this.currentUser = null;
+    this.groupNameError = null;
   }
 
   addObserver(callback) {
@@ -30,10 +32,25 @@ class PixLEDModel {
     this.observers = this.observers.filter((observer) => observer !== callback);
   }
 
+  setGroupName(name) {
+    try {
+      this.notifyObservers({ groupName: name });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   updateColorInDatabase(color, ledNumber) {
     this.notifyObservers({ ledColor: color, ledNumber });
-    this.setPaletteColor(null);
     this.selectLED(null);
+  }
+
+  setCurrentUser(user) {
+    this.currentUser = user;
+  }
+
+  setGroupNameError(error) {
+    this.groupNameError = error;
   }
 
   /***

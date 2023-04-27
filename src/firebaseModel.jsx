@@ -17,6 +17,20 @@ function updateFirebaseFromModel(model) {
       if (payload.hasOwnProperty("ledColor")) {
         set(ref(db, "ledMatrix/" + payload.ledNumber), payload.ledColor);
       }
+      if (payload.hasOwnProperty("groupName")) {
+        const groupInDatabase = await get(
+          ref(db, "groups/" + auth.currentUser.uid)
+        );
+
+        if (groupInDatabase.exists()) {
+          model.setGroupNameError("You have already created a group");
+        } else {
+          set(ref(db, "groups/" + auth.currentUser.uid), {
+            groupName: payload.groupName,
+            members: ["Yousef", "Abhinav"],
+          });
+        }
+      }
     }
   });
 }
@@ -25,6 +39,20 @@ function updateModelFromFirebase(model) {
   const ledMatrixRef = ref(db, "ledMatrix");
   onValue(ledMatrixRef, (firebaseData) => {
     model.setGridArray(Object.values(firebaseData.val()));
+  });
+
+  auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      const userInDatabase = await get(ref(db, "users/" + user.uid));
+      if (!userInDatabase.exists()) {
+        set(ref(db, "users/" + user.uid), {
+          name: user.displayName,
+          id: user.uid,
+          group: null,
+        });
+      }
+      model.setCurrentUser({ name: user.displayName, id: user.uid });
+    }
   });
 }
 

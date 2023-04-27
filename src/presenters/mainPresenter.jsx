@@ -4,7 +4,9 @@ function MainPresenter() {
 
 
 return (
-    <MainView/>
+    <div className="top-bar">
+        <MainView/>
+        </div>
 )
 }
 export default MainPresenter;

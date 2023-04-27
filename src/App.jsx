@@ -24,11 +24,12 @@ function App(props) {
   }, []);
 
   return (
-    <>
+    <><div className="top-bar">
       {<GoogleLogin isLoggedIn={isLoggedIn} />}
-      <MainPresenter />
+      <MainPresenter /> </div> <div className="main-components">
       <MatrixGrid model={props.model} />
       <ColorPallete model={props.model} />
+      </div>
     </>
   );
 }

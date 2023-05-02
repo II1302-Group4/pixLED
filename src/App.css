@@ -1,12 +1,11 @@
 :root {
-    max-width: 1280px;
     padding: 1rem;
     text-align: center;
     font-family: "Press Start 2P" !important;
 }
 html {
     margin: 0;
-    min-height: 100%;
+    padding: 0;
 }
 body {
     background-image: url("assets/sky.jpg");
@@ -15,7 +14,7 @@ body {
     background-position: right;
     background-color: rgb(61, 0, 46); 
     margin: 0;
-    min-height: 100%;
+    padding: 0;
 }
 
 .window {
@@ -47,7 +46,6 @@ body {
     float: right;
     padding:4vh 0;
     margin-right: 2vw;
- 
 }
 .tutorial-btn {
     float: left;
@@ -58,13 +56,11 @@ body {
     margin-top: 2vh;
     width: 8vh;
     height: 8vh;
-
 }
 #google-logo {
     width: 2vh;
     height: 2vh;
     margin-right: 1vh;
-
 }
 
 .logo:hover {
@@ -74,20 +70,6 @@ body {
     filter: drop-shadow(0 0 2em #e747d5aa);
 }
 
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
-}
 
 .main {
     margin-left: 5vw;
@@ -114,7 +96,7 @@ body {
 .colorPalette {
     float: right;
     margin-top: 10vw;
-    margin-right: 20vw;
+    margin-right: 34vw;
     width: 8vw;
     height: 30vw;
     z-index: 2;

@@ -16,7 +16,10 @@ function MainView(props) {
       </div>
 
       <div className="colorPalette">
-        <ColorPalettePresenter model={props.model} />
+        <ColorPalettePresenter 
+          model={props.model} 
+          isLoggedIn={props.isLoggedIn}
+        />
       </div>
       <button onClick={createGroup}>Create a group</button>
     </div>

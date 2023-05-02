@@ -2,6 +2,7 @@ import React from "react";
 import { auth } from "../firebaseModel";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { signOut } from "firebase/auth";
+import googleLogo from "../assets/google-logo.png";
 
 function loginView(props) {
   const provider = new GoogleAuthProvider();
@@ -30,6 +31,7 @@ function loginView(props) {
         </button>
       ) : (
         <button className="txt-btn" onClick={signInWithGoogle}>
+          <img src={googleLogo} id="google-logo"/>
           Login
         </button>
       )}

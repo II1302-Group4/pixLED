@@ -38,6 +38,12 @@ body {
     height: 8vh;
 
 }
+#google-logo {
+    width: 2vh;
+    height: 2vh;
+    margin-right: 1vh;
+
+}
 
 .logo:hover {
     filter: drop-shadow(0 0 2em #ef63c7aa);

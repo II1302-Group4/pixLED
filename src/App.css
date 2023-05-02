@@ -9,6 +9,19 @@ body {
   background-color: rgb(61, 0, 46); 
 }
 
+.window {
+    border-radius: 2px;
+    background-color: #eddfed;
+}
+/* Pink gradient for the window titles */
+.title-bar {
+    background: linear-gradient(
+        90deg,
+        #d929b8,
+        #f79ee7
+    );
+}
+
 .top-bar {
   position: fixed;
   width: 100%;
@@ -76,25 +89,31 @@ body {
     grid-template-columns: repeat(64, 1fr);
 }
 
-.colorPalette-frame {
-    background-color: gainsboro;
-    width: 6vw;
-    height: 24vw;
-}
-#test {
-    width: 9vw;
+/* Colour palette */
+.colorPalette {
+    width: 8vw;
     height: 30vw;
-    font-family: "Press Start 2P" !important;
+}
+.colorPalette .title-bar {
+    text-align: left;
 }
 .colorPalette-container {
     display: grid;
-    width: 5vw;
-    height: 20vw;
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    margin-left: 0.5vw;
-    padding-top: 1vw;
-    font-family: "Press Start 2P" !important;
+    width: 5vw;
+    height: 20vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    z-index: 2;
+}
+.colorPalette-container .grid-item {
+    border: 0.1vw solid #000000;
+}
+#submit-icon {
+    height: 2.3vh;
 }
 
 /* A regular cell of the matrix grid */

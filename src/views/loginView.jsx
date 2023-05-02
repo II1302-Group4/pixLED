@@ -30,7 +30,7 @@ function loginView(props) {
         </button>
       ) : (
         <button className="txt-btn" onClick={signInWithGoogle}>
-          Login with Google
+          Login
         </button>
       )}
     </div>

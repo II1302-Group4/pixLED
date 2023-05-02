@@ -1,10 +1,24 @@
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo2.png";
 import LoginPresenter from "../presenters/loginPresenter";
 
 function topBarView(props) {
   return (
-    <div>
-      <span>
+      <div>
+        <span className="logo">
+          <img src={Logo}/>
+        </span>
+        <span className="login-btn">
+          <LoginPresenter model={props.model} isLoggedIn={props.isLoggedIn} />
+        </span>
+        <span className="tutorial-btn">
+          <button className="txt-btn" onClick={console.log("tutorial")}>Tutorial</button>
+        </span>
+      </div>
+  );
+}
+
+//Information about logedin user. Maybe put this under "profile" or something instead//
+/*  <span>
         {!props.model.currentUser ? (
           <span>No user logged in</span>
         ) : (
@@ -13,15 +27,6 @@ function topBarView(props) {
             <div>User ID: {props.model.currentUser.id.slice(0, 6)}</div>
           </>
         )}
-      </span>
-
-      <div className="logo">
-        <img src={Logo} width="100vh" height="100vh" />
-      </div>
-
-      <LoginPresenter model={props.model} isLoggedIn={props.isLoggedIn} />
-    </div>
-  );
-}
+      </span>*/
 
 export default topBarView;

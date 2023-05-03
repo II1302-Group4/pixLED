@@ -35,7 +35,7 @@ function LoginView(props) {
     const signOutWithGoogle = async () => {
         try {
             await signOut(auth);
-            props.model.setCurrentUser(null);
+            props.signOut();
         } catch (error) {
             console.error("Error signing out with Google", error);
         }
@@ -50,7 +50,7 @@ function LoginView(props) {
     };
     return (
         <div>
-            {props.isLoggedIn ? (
+            {props.user ? (
                 <>
                     <button className="txt-btn" onClick={handleOptionsClick}>
                         Options

@@ -9,10 +9,7 @@ function MainView(props) {
   return (
     <div className="main">
       <div className="grid">
-        <MatrixGridPresenter
-          model={props.model}
-          isLoggedIn={props.isLoggedIn}
-        />
+        <MatrixGridPresenter model={props.model} />
       </div>
 
       <div className="colorPalette">

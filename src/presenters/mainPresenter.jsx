@@ -1,10 +1,10 @@
-import MainView from '../views/mainView'
+import MainView from "../views/mainView";
 
 function MainPresenter(props) {
-    return (
-        <div>
-            <MainView model={props.model} isLoggedIn={props.isLoggedIn}/>
-        </div>
-    )
+  return (
+    <div>
+      <MainView model={props.model} />
+    </div>
+  );
 }
 export default MainPresenter;

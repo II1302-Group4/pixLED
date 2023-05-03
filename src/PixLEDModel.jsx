@@ -84,6 +84,7 @@ class PixLEDModel {
    */
   setCurrentUser(user) {
     this.currentUser = user;
+    this.notifyObservers();
   }
 
   setGroupNameError(error) {
@@ -96,7 +97,7 @@ class PixLEDModel {
    */
   selectLED(index) {
     this.chosenLED = index;
-    if (this.currentUser.group)
+    if (this.currentUser && this.currentUser.group)
       this.notifyObservers({
         ledIndex: index,
         name: this.currentUser.name,

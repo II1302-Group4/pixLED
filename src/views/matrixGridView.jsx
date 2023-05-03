@@ -2,10 +2,6 @@ import React from "react";
 import "../App.css";
 
 export default function matrixGridView(props) {
-  console.log(props.members);
-  function logThis() {
-    console.log("hej");
-  }
   function LED(color, index) {
     if (index == props.chosenLED && props.chosenColor) {
       return (
@@ -76,7 +72,7 @@ export default function matrixGridView(props) {
         disabled={
           !(props.chosenLED && props.chosenColor) ||
           props.timer != props.timeout ||
-          !props.isLoggedIn
+          !props.user
         }
       >
         {props.timer == props.timeout ? (

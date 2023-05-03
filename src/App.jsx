@@ -1,35 +1,11 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import { auth } from "./firebaseModel";
 import MainPresenter from "./presenters/mainPresenter";
 import TopBarPresenter from "./presenters/topBarPresenter";
 import CreateGroup from "./presenters/createGroupPresenter.jsx";
 import JoinGroup from "./presenters/joinGroupPresenter";
 import GroupPage from "./presenters/groupPagePresenter";
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  RouterProvider,
-  Navigate,
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 function App(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
   return (
     <div>
       <Router>
@@ -40,13 +16,10 @@ function App(props) {
             element={
               <>
                 <div className="top-bar">
-                  <TopBarPresenter
-                    model={props.model}
-                    isLoggedIn={isLoggedIn}
-                  />
+                  <TopBarPresenter model={props.model} />
                 </div>
                 <div className="main-components">
-                  <MainPresenter model={props.model} isLoggedIn={isLoggedIn} />
+                  <MainPresenter model={props.model} />
                 </div>
               </>
             }
@@ -56,7 +29,7 @@ function App(props) {
             path="createGroup"
             element={
               <div className="sidebar-components">
-                <CreateGroup model={props.model} isLoggedIn={isLoggedIn} />
+                <CreateGroup model={props.model} />
               </div>
             }
           />

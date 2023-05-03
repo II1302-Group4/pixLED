@@ -5,12 +5,12 @@ function topBarView(props) {
   return (
     <div>
       <span>
-        {!props.model.currentUser ? (
+        {!props.user ? (
           <span>No user logged in</span>
         ) : (
           <>
-            <div>{props.model.currentUser.name}</div>
-            <div>User ID: {props.model.currentUser.id.slice(0, 6)}</div>
+            <div>{props.user.name}</div>
+            <div>User ID: {props.user.id.slice(0, 6)}</div>
           </>
         )}
       </span>
@@ -19,7 +19,7 @@ function topBarView(props) {
         <img src={Logo} width="100vh" height="100vh" />
       </div>
 
-      <LoginPresenter model={props.model} isLoggedIn={props.isLoggedIn} />
+      <LoginPresenter model={props.model} />
     </div>
   );
 }

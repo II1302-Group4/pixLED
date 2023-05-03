@@ -20,7 +20,6 @@ function JoinGroup(props) {
     <JoinGroupView
       acceptInvitation={acceptInvitation}
       model={props.model}
-      isLoggedIn={props.isLoggedIn}
       groupName={groupName}
     />
   );

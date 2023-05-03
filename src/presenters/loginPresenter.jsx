@@ -2,9 +2,29 @@ import React from "react";
 import LoginView from "../views/loginView";
 
 function loginPresenter(props) {
-  return (
-    <div>{<LoginView model={props.model} isLoggedIn={props.isLoggedIn} />}</div>
-  );
+  const [user, setCurrentUser] = React.useState(props.model.currentUser);
+
+  React.useEffect(wasCreatedACB, []);
+
+  function observerACB() {
+    setCurrentUser(props.model.currentUser);
+  }
+
+  function wasCreatedACB() {
+    props.model.addObserver(observerACB);
+    function isTakenDownACB() {
+      props.model.removeObserver(observerACB);
+    }
+    return isTakenDownACB;
+  }
+
+  function signOut() {
+    props.model.setMembers([]);
+    props.model.selectLED(null);
+    props.model.setCurrentUser(null);
+  }
+
+  return <div>{<LoginView user={user} signOut={signOut} />}</div>;
 }
 
 export default loginPresenter;

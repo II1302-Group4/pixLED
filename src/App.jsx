@@ -37,7 +37,7 @@ function App(props) {
             path="/"
             element={
               <>
-                <div className="top-bar">
+                <div className="side-bar">
                   <TopBarPresenter
                     model={props.model}
                     isLoggedIn={isLoggedIn}

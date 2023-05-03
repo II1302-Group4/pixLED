@@ -4,6 +4,8 @@ import { auth } from "./firebaseModel";
 import MainPresenter from "./presenters/mainPresenter";
 import TopBarPresenter from "./presenters/topBarPresenter";
 import CreateGroup from "./presenters/createGroupPresenter.jsx";
+import JoinGroup from "./presenters/joinGroupPresenter";
+import GroupPage from "./presenters/groupPagePresenter";
 import {
   Route,
   BrowserRouter as Router,
@@ -58,6 +60,8 @@ function App(props) {
               </div>
             }
           />
+          <Route path="invitation/:id" element={<JoinGroup />} />
+          <Route path="groups/:id" element={<GroupPage />} />
         </Routes>
       </Router>
     </div>

@@ -72,6 +72,7 @@ function matrixGridPresenter(props) {
       timer={timer}
       timeout={timeout}
       isLoggedIn={props.isLoggedIn}
+      members={members}
     />
   );
 }

@@ -1,12 +1,12 @@
 :root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-    font-family: "Press Start 2P" !important;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: "Press Start 2P" !important;
 }
 body {
-  background-color: darkslategrey; 
+  background-color: darkslategrey;
 }
 
 .top-bar {
@@ -22,76 +22,82 @@ body {
 }
 
 .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
 /* Matrix grid, please do not change height units */
 .container {
-    display: grid;
-    width: 80vw;
-    height: 80vw;
-    grid-template-rows: repeat(64, 1fr);
-    grid-template-columns: repeat(64, 1fr);
+  display: grid;
+  width: 80vw;
+  height: 80vw;
+  grid-template-rows: repeat(64, 1fr);
+  grid-template-columns: repeat(64, 1fr);
 }
 
 .colorPalette-frame {
-    background-color: gainsboro;
-    width: 6vw;
-    height: 24vw;
+  background-color: gainsboro;
+  width: 6vw;
+  height: 24vw;
 }
 #test {
-    width: 9vw;
-    height: 30vw;
-    font-family: "Press Start 2P" !important;
+  width: 9vw;
+  height: 30vw;
+  font-family: "Press Start 2P" !important;
 }
 .colorPalette-container {
-    display: grid;
-    width: 5vw;
-    height: 20vw;
-    grid-template-rows: repeat(8, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 0.5vw;
-    padding-top: 1vw;
-    font-family: "Press Start 2P" !important;
+  display: grid;
+  width: 5vw;
+  height: 20vw;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 0.5vw;
+  padding-top: 1vw;
+  font-family: "Press Start 2P" !important;
 }
 
 /* A regular cell of the matrix grid */
 .grid-item {
-    border: 1px solid #000000;
+  border: 1px solid #000000;
 }
 /* Selected cell will get a golden highlight */
 .chosen-item {
-    border: 1px solid rgb(138, 40, 150);
-    box-shadow: 1px 1px 8px 8px rgb(255, 238, 0);
-    position: relative;
-    z-index: 1000;
+  border: 1px solid rgb(138, 40, 150);
+  box-shadow: 1px 1px 8px 8px rgb(255, 238, 0);
+  position: relative;
+  z-index: 1000;
+}
+
+.member-chosen-item {
+  border: 1px solid rgb(138, 40, 150);
+  position: relative;
+  z-index: 1000;
 }
 
 .txt-btn {
-    font-family: "Press Start 2P" !important;
+  font-family: "Press Start 2P" !important;
 }

@@ -2,6 +2,10 @@ import React from "react";
 import "../App.css";
 
 export default function matrixGridView(props) {
+  console.log(props.members);
+  function logThis() {
+    console.log("hej");
+  }
   function LED(color, index) {
     if (index == props.chosenLED && props.chosenColor) {
       return (
@@ -22,15 +26,38 @@ export default function matrixGridView(props) {
         ></div>
       );
     } else {
-      return (
-        <div
-          key={index}
-          onClick={clickOnLED}
-          id={index}
-          style={{ backgroundColor: `${color}` }}
-          className="grid-item"
-        ></div>
-      );
+      let memberHasChosen = null;
+      props.members.forEach((member) => {
+        if (member.previewLEDIndex == index) {
+          memberHasChosen = member;
+        }
+      });
+      if (memberHasChosen) {
+        return (
+          <div
+            key={index}
+            onClick={clickOnLED}
+            id={index}
+            style={{
+              boxShadow: `1px 1px 8px 8px ${memberHasChosen.color}`,
+              backgroundColor: `${color}`,
+            }}
+            className="chosen-item"
+          ></div>
+        );
+      } else {
+        return (
+          <div
+            key={index}
+            onClick={clickOnLED}
+            id={index}
+            style={{
+              backgroundColor: `${color}`,
+            }}
+            className="grid-item"
+          ></div>
+        );
+      }
     }
   }
   function clickOnLED(event) {

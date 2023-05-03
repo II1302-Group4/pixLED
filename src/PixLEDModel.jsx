@@ -113,7 +113,6 @@ class PixLEDModel {
   setMembers(members) {
     this.members = members;
     this.notifyObservers();
-    console.log(this.members);
   }
   /***
    * User has accepted to join a group

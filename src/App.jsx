@@ -60,8 +60,14 @@ function App(props) {
               </div>
             }
           />
-          <Route path="invitation/:id" element={<JoinGroup />} />
-          <Route path="groups/:id" element={<GroupPage />} />
+          <Route
+            path="invitation/:id"
+            element={<JoinGroup model={props.model} />}
+          />
+          <Route
+            path="groups/:id"
+            element={<GroupPage model={props.model} />}
+          />
         </Routes>
       </Router>
     </div>

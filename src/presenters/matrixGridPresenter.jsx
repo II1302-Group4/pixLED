@@ -12,6 +12,7 @@ function matrixGridPresenter(props) {
   const [sumbit, setSumbit] = React.useState(false);
   const timeoutId = React.useRef(null);
   const [timeout] = React.useState(15);
+  const [members, setMembers] = React.useState(props.model.members);
 
   const countTimer = React.useCallback(() => {
     if (timer <= 0) {
@@ -37,6 +38,7 @@ function matrixGridPresenter(props) {
     setMatrixGrid(props.model.gridArray);
     setPickedColor(props.model.paletteColor);
     setChosenLED(props.model.chosenLED);
+    setMembers(props.model.members);
   }
 
   function wasCreatedACB() {

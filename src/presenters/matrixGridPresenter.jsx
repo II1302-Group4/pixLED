@@ -4,12 +4,14 @@ import MatrixGridView from "../views/matrixGridView";
 function matrixGridPresenter(props) {
   const [matrixGrid, setMatrixGrid] = React.useState(props.model.gridArray);
   const [chosenLed, setChosenLED] = React.useState(props.model.chosenLED);
+  const [pickedColor, setPickedColor] = React.useState(props.model.paletteColor);
 
   React.useEffect(wasCreatedACB, []);
 
   function observerACB() {
     setMatrixGrid(props.model.gridArray);
     setChosenLED(props.model.chosenLED);
+    setPickedColor(props.model.paletteColor);
   }
 
   function wasCreatedACB() {
@@ -33,6 +35,7 @@ function matrixGridPresenter(props) {
       matrixGrid={matrixGrid}
       selectLED={selectLED}
       chosenLED={chosenLed}
+      chosenColor={pickedColor}
     />
   );
 }

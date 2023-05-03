@@ -42,6 +42,9 @@ function matrixGridPresenter(props) {
   }
 
   function wasCreatedACB() {
+    window.addEventListener("beforeunload", function (e) {
+      selectLED(null);
+    });
     props.model.addObserver(observerACB);
     function isTakenDownACB() {
       selectLED(null);

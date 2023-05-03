@@ -24,7 +24,7 @@ function loginPresenter(props) {
     props.model.setCurrentUser(null);
   }
 
-  return <div>{<LoginView user={user} signOut={signOut} />}</div>;
+  return <span>{<LoginView user={user} signOut={signOut} />}</span>;
 }
 
 export default loginPresenter;

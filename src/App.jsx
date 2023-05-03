@@ -2,9 +2,20 @@ import "./App.css";
 import MainPresenter from "./presenters/mainPresenter";
 import TopBarPresenter from "./presenters/topBarPresenter";
 import CreateGroup from "./presenters/createGroupPresenter.jsx";
+
 import JoinGroup from "./presenters/joinGroupPresenter";
 import GroupPage from "./presenters/groupPagePresenter";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Artist from "./presenters/artistPresenter";
+import History from "./presenters/historyPresenter"
+import Profile from "./presenters/profilePresenter"
+import Team from "./presenters/teamPresenter"
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 function App(props) {
   return (
     <div>
@@ -15,8 +26,10 @@ function App(props) {
             path="/"
             element={
               <>
-                <div className="top-bar">
-                  <TopBarPresenter model={props.model} />
+                <div className="side-bar">
+                  <TopBarPresenter
+                    model={props.model}
+                  />
                 </div>
                 <div className="main-components">
                   <MainPresenter model={props.model} />
@@ -41,6 +54,10 @@ function App(props) {
             path="groups/:id"
             element={<GroupPage model={props.model} />}
           />
+          <Route path="artist" element={<Artist/>} />
+          <Route path="history" element={<History/>} />
+          <Route path="profile" element={<Profile/>} />
+          <Route path="team" element={<Team/>} />
         </Routes>
       </Router>
     </div>

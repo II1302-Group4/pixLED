@@ -1,9 +1,10 @@
 import React from "react";
 import "../App.css";
+import submitIcon from "../assets/submit.png"
 
 function colorPaletteView(props) {
     function color(color, index) {
-        if (color == props.pickedColor) {
+        if (color == props.chosenColor) {
             return (
                 <div
                     key={index}
@@ -27,8 +28,12 @@ function colorPaletteView(props) {
         props.colorPicked(event.target.id);
     }
 
+    function submit() {
+        props.updateColor(props.chosenColor, props.chosenLED);
+    }
+
     return (
-        <div className="window" id="test">
+        <div className="window" id="colour-palette">
             <div className="title-bar">
                 <div className="title-bar-text">PixLED Palette</div>
             </div>
@@ -36,8 +41,21 @@ function colorPaletteView(props) {
                 <div className="colorPalette-container">
                     {props.colorPaletteArray.map(color)}
                 </div>
+                <button
+                    className="txt-btn"
+                    onClick={submit}
+                    disabled={
+                        !(props.chosenLED && props.chosenColor) ||
+                        props.timer != props.timeout
+                    }
+                >
+                    {props.timer == props.timeout ? (
+                        <img src={submitIcon} id="submit-icon"/>
+                    ) : (
+                        <span>{props.timer}</span>
+                    )}
+                </button>
             </div>
-        
         </div>
     );
 }

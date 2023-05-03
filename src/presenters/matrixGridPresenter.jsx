@@ -3,10 +3,8 @@ import MatrixGridView from "../views/matrixGridView";
 
 function matrixGridPresenter(props) {
   const [matrixGrid, setMatrixGrid] = React.useState(props.model.gridArray);
-  const [pickedColor, setPickedColor] = React.useState(
-    props.model.paletteColor
-  );
   const [chosenLed, setChosenLED] = React.useState(props.model.chosenLED);
+  const [pickedColor, setPickedColor] = React.useState(props.model.paletteColor);
   const initialTimer = props.model.timer;
   const [timer, setTimer] = React.useState(initialTimer);
   const [sumbit, setSumbit] = React.useState(false);
@@ -37,10 +35,10 @@ function matrixGridPresenter(props) {
 
   function observerACB() {
     setMatrixGrid(props.model.gridArray);
-    setPickedColor(props.model.paletteColor);
     setChosenLED(props.model.chosenLED);
     setMembers(props.model.members);
     setCurrentUser(props.model.currentUser);
+    setPickedColor(props.model.paletteColor);
   }
 
   function wasCreatedACB() {
@@ -55,11 +53,6 @@ function matrixGridPresenter(props) {
     return isTakenDownACB;
   }
 
-  function updateColor(color, ledNumber) {
-    props.model.updateColorInDatabase(color, ledNumber);
-    setSumbit(true);
-  }
-
   /**
    * Asks model to select a pixel
    * @param {int} ledNumber LED's index in the matrix array
@@ -71,7 +64,6 @@ function matrixGridPresenter(props) {
   return (
     <MatrixGridView
       matrixGrid={matrixGrid}
-      updateColor={updateColor}
       selectLED={selectLED}
       chosenLED={chosenLed}
       chosenColor={pickedColor}

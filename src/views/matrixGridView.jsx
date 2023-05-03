@@ -63,10 +63,14 @@ export default function matrixGridView(props) {
   function submit() {
     props.updateColor(props.chosenColor, props.chosenLED);
   }
-  return (
-    <>
-      <div className="container">{props.matrixGrid.map(LED)}</div>
-      <button
+    return (
+        <div className="window" id="grid-window">
+            <div className="title-bar">
+                <div className="title-bar-text">PixLED grid</div>
+            </div>
+            <div className="window-body">
+                <div className="container">{props.matrixGrid.map(LED)}</div>
+                <button
         className="txt-btn"
         onClick={submit}
         disabled={
@@ -81,6 +85,7 @@ export default function matrixGridView(props) {
           <span>{props.timer}</span>
         )}
       </button>
-    </>
-  );
+            </div>
+        </div>
+    );
 }

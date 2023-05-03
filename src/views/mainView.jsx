@@ -7,15 +7,18 @@ function MainView(props) {
     navigate("/createGroup");
   }
   return (
-    <div>
+    <div className="main">
       <div className="grid">
         <MatrixGridPresenter model={props.model} />
       </div>
 
       <div className="colorPalette">
-        <ColorPalettePresenter model={props.model} />
+        <ColorPalettePresenter 
+          model={props.model} 
+          isLoggedIn={props.isLoggedIn}
+        />
       </div>
-      <button onClick={createGroup}>Create a group</button>
+      {/* <button onClick={createGroup}>Create a group</button> */}
     </div>
   );
 }

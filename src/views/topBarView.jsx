@@ -4,15 +4,15 @@ import LoginPresenter from "../presenters/loginPresenter";
 function topBarView(props) {
   return (
       <div>
-        <span className="logo">
+        <div className="logo">
           <img src={Logo}/>
-        </span>
-        <span className="login-btn">
+        </div>
+        <div className="login-btn">
           <LoginPresenter model={props.model} isLoggedIn={props.isLoggedIn} />
-        </span>
-        <span className="tutorial-btn">
+        </div>
+        <div className="tutorial-btn">
           <button className="txt-btn" onClick={console.log("tutorial")}>Tutorial</button>
-        </span>
+        </div>
       </div>
   );
 }

@@ -43,14 +43,14 @@ function LoginView(props) {
                                 <button className="txt-btn"> Profile </button>
                                 <button className="txt-btn"> Groups </button>
                                 <button className="txt-btn">
-                                    History Of Changes
+                                    History
                                 </button>
-                                <button className="txt-btn">Artist Mode</button>
+                                <button className="txt-btn">Artist</button>
                                 <button
                                     className="txt-btn"
                                     onClick={signOutWithGoogle}
                                 >
-                                    Sign out
+                                    Logout
                                 </button>
                             </ul>
                         </div>

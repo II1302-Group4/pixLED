@@ -38,8 +38,13 @@ export default function matrixGridView(props) {
     }
 
     return (
-        <div>
-            <div className="container">{props.matrixGrid.map(LED)}</div>
+        <div className="window" id="grid-window">
+            <div className="title-bar">
+                <div className="title-bar-text">PixLED grid</div>
+            </div>
+            <div className="window-body">
+                <div className="container">{props.matrixGrid.map(LED)}</div>
+            </div>
         </div>
     );
 }

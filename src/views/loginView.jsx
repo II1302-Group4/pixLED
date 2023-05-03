@@ -3,8 +3,25 @@ import { auth } from "../firebaseModel";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { signOut } from "firebase/auth";
 import googleLogo from "../assets/google-logo.png";
+import { useNavigate } from "react-router-dom";
 
 function LoginView(props) {
+
+    const navigate = useNavigate();
+
+    function navigateToProfile() {
+        navigate("/profile");
+    }
+    function navigateToTeams() {
+        navigate("/team");
+    }
+    function navigateToHistory() {
+        navigate("/history");
+    }  
+    function navigateToArtist() {
+        navigate("/artist");
+    }
+
     const provider = new GoogleAuthProvider();
 
     const signInWithGoogle = async () => {
@@ -26,6 +43,7 @@ function LoginView(props) {
 
     const [showOptions, setShowOptions] = useState(false);
 
+    
     //callback if "options" pressed, then display the options. the dropdownbar function
     const handleOptionsClick = () => {
         setShowOptions(!showOptions);
@@ -40,12 +58,10 @@ function LoginView(props) {
                     {showOptions && (
                         <div className="dropdown-menu">
                             <ul>
-                                <button className="txt-btn"> Profile </button>
-                                <button className="txt-btn"> Groups </button>
-                                <button className="txt-btn">
-                                    History
-                                </button>
-                                <button className="txt-btn">Artist</button>
+                                <button className="txt-btn" onClick={navigateToProfile}> Profile </button>
+                                <button className="txt-btn" onClick={navigateToTeams}> Teams </button>
+                                <button className="txt-btn" onClick={navigateToHistory}> History </button>
+                                <button className="txt-btn" onClick={navigateToArtist}> Artist </button>
                                 <button
                                     className="txt-btn"
                                     onClick={signOutWithGoogle}

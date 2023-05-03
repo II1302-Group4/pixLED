@@ -4,6 +4,11 @@ import { auth } from "./firebaseModel";
 import MainPresenter from "./presenters/mainPresenter";
 import TopBarPresenter from "./presenters/topBarPresenter";
 import CreateGroup from "./presenters/createGroupPresenter.jsx";
+import Artist from "./presenters/artistPresenter";
+import History from "./presenters/historyPresenter"
+import Profile from "./presenters/profilePresenter"
+import Team from "./presenters/teamPresenter"
+
 import {
   Route,
   BrowserRouter as Router,
@@ -58,6 +63,10 @@ function App(props) {
               </div>
             }
           />
+          <Route path="artist" element={<Artist/>} />
+          <Route path="history" element={<History/>} />
+          <Route path="profile" element={<Profile/>} />
+          <Route path="team" element={<Team/>} />
         </Routes>
       </Router>
     </div>

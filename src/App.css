@@ -17,6 +17,11 @@ body {
     padding: 0;
 }
 
+#loading {
+    width: 20vw;
+    padding: 30vh 0;
+}
+
 button {
     background-color: #edb1e2;
 }

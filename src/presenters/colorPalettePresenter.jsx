@@ -26,8 +26,7 @@ function colorPalettePresenter(props) {
     props.model.paletteColor
   );
   const [chosenLed, setChosenLED] = React.useState(props.model.chosenLED);
-  const initialTimer = props.model.timer;
-  const [timer, setTimer] = React.useState(initialTimer);
+  const [timer, setTimer] = React.useState(null);
   const [submit, setSubmit] = React.useState(false);
   const timeoutId = React.useRef(null);
   const [timeout] = React.useState(15);
@@ -36,11 +35,12 @@ function colorPalettePresenter(props) {
   const countTimer = React.useCallback(() => {
     if (timer <= 0) {
       setTimer(timeout);
+      localStorage.setItem("timer", timeout);
       setSubmit(false);
     } else {
       if (submit) {
         setTimer(timer - 1);
-        props.model.updateTimer(timer);
+        localStorage.setItem("timer", timer - 1);
       }
     }
   }, [timer, submit]);
@@ -60,6 +60,8 @@ function colorPalettePresenter(props) {
   }
 
   function wasCreatedACB() {
+    if (localStorage.getItem("timer") < 15) setSubmit(true);
+    setTimer(localStorage.getItem("timer"));
     props.model.addObserver(observerACB);
     function isTakenDownACB() {
       props.model.removeObserver(observerACB);

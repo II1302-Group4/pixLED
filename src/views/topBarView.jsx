@@ -1,7 +1,15 @@
 import Logo from "../assets/logo2.png";
 import LoginPresenter from "../presenters/loginPresenter";
+import introJs from 'intro.js';
 
 function topBarView(props) {
+
+  function onTutorialStart() {
+    introJs().setOption("hidePrev", true).setOption("nextLabel", " > ").setOption("showBullets", false).setOption("prevLabel", " < ").setOptions({
+      tooltipClass: 'tutorial-card'
+    }).start();
+
+  }
   return (
       <div>
         <div className="logo">
@@ -11,7 +19,7 @@ function topBarView(props) {
           <LoginPresenter model={props.model}/>
         </div>
         <div className="tutorial-btn">
-          <button className="txt-btn" onClick={console.log("tutorial")}>Tutorial</button>
+          <button className="txt-btn" onClick={onTutorialStart}>Tutorial</button>
         </div>
       </div>
   );

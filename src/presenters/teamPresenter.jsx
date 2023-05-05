@@ -1,6 +1,6 @@
-import TeamView from "../views/TeamView"
+import TeamView from "../views/teamView"
 
-function Team() {
+function teamPresenter() {
 
     return (
         <TeamView/>

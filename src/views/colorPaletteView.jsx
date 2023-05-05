@@ -34,48 +34,28 @@ function colorPaletteView(props) {
 
     return (
         <div className="window" id="colour-palette" data-title='Choose colour' data-intro='Colour your selected pixel' data-step='2'>
-            <div className="title-bar">
-                <div className="title-bar-text">PixLED Palette</div>
-            </div>
-            <div className="window-body">
-                <div className="colorPalette-container">
-                    {props.colorPaletteArray.map(color)}
-                </div>
-                <button
-                    className="txt-btn"
-                    onClick={submit}
-                    data-title='Submit'
-                    data-intro='Submit your changes' data-step='3'
-                    disabled={
-                        !(props.chosenLED && props.chosenColor) ||
-                        props.timer != props.timeout
-                    }
-                >
-                    {props.timer == props.timeout ? (
-                        <img src={submitIcon} id="submit-icon"/>
-                    ) : (
-                        <span>{props.timer}</span>
-                    )}
-                </button>
-            </div>
-
+        <div className="title-bar">
+          <div className="title-bar-text">PixLED Palette</div>
         </div>
-        <button
-          className="txt-btn"
-          onClick={submit}
-          disabled={
-            !(props.chosenLED && props.chosenColor) ||
-            props.timer != props.timeout ||
-            !props.user
-          }
-        >
-          {props.timer == props.timeout ? (
-            <img src={submitIcon} id="submit-icon" />
-          ) : (
-            <span>{props.timer}</span>
-          )}
-        </button>
-      </div>
+        <div className="window-body">
+          <div className="colorPalette-container">
+            {props.colorPaletteArray.map(color)}
+          </div>
+          <button
+            className="txt-btn"
+            onClick={submit}
+            data-title='Submit'
+            data-intro='Submit your changes' data-step='3'
+            disabled={!(props.chosenLED && props.chosenColor) ||
+              props.timer != props.timeout}
+          >
+            {props.timer == props.timeout ? (
+              <img src={submitIcon} id="submit-icon" />
+            ) : (
+              <span>{props.timer}</span>
+            )}
+          </button>
+        </div>      
     </div>
   );
 }

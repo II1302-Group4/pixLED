@@ -22,26 +22,29 @@ function colorPalettePresenter(props) {
   ];
 
   const [colorPalette] = React.useState(colorPaletteArray);
-  const [pickedColor, setPickedColor] = React.useState(props.model.paletteColor);
+  const [pickedColor, setPickedColor] = React.useState(
+    props.model.paletteColor
+  );
   const [chosenLed, setChosenLED] = React.useState(props.model.chosenLED);
-  const initialTimer = props.model.timer;
-  const [timer, setTimer] = React.useState(initialTimer);
+  const [timer, setTimer] = React.useState(null);
   const [submit, setSubmit] = React.useState(false);
   const timeoutId = React.useRef(null);
   const [timeout] = React.useState(15);
+  const [user, setCurrentUser] = React.useState(props.model.currentUser);
 
   const countTimer = React.useCallback(() => {
     if (timer <= 0) {
       setTimer(timeout);
+      localStorage.setItem("timer", timeout);
       setSubmit(false);
     } else {
       if (submit) {
         setTimer(timer - 1);
-        props.model.updateTimer(timer);
+        localStorage.setItem("timer", timer - 1);
       }
     }
   }, [timer, submit]);
-  
+
   React.useEffect(() => {
     timeoutId.current = window.setTimeout(countTimer, 1000);
     // cleanup function
@@ -49,13 +52,16 @@ function colorPalettePresenter(props) {
   }, [timer, countTimer]);
 
   React.useEffect(wasCreatedACB, []);
-  
+
   function observerACB() {
     setPickedColor(props.model.paletteColor);
     setChosenLED(props.model.chosenLED);
+    setCurrentUser(props.model.currentUser);
   }
 
   function wasCreatedACB() {
+    if (localStorage.getItem("timer") < 15) setSubmit(true);
+    setTimer(localStorage.getItem("timer"));
     props.model.addObserver(observerACB);
     function isTakenDownACB() {
       props.model.removeObserver(observerACB);
@@ -81,7 +87,7 @@ function colorPalettePresenter(props) {
       chosenColor={pickedColor}
       timer={timer}
       timeout={timeout}
-      isLoggedIn={props.isLoggedIn}
+      user={user}
     />
   );
 }

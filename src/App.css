@@ -17,9 +17,18 @@ body {
     padding: 0;
 }
 
+#loading {
+    width: 20vw;
+    padding: 30vh 0;
+}
+
+button {
+    background-color: #edb1e2;
+}
+
 .window {
     border-radius: 2px;
-    background-color: #eddfed;
+    background-color: #edcbed;
 }
 /* Pink gradient for the window titles */
 .title-bar {
@@ -49,7 +58,7 @@ body {
 
 
 .main-components {
-  padding-top: 6vh;
+
 }
 .login-btn {
     position: absolute;
@@ -83,25 +92,23 @@ body {
 /* Matrix grid, please do not change height units */
 .grid {
     float: left;
-    width: 88vh;
-    height: 88vh;
-    margin-left: 5vw;
+    margin-left: 15vw;
 }
 .container {
     display: grid;
     grid-template-rows: repeat(64, 1fr);
     grid-template-columns: repeat(64, 1fr);
-    width: 85vh;
-    height: 85vh;
+    width: 90vh;
+    height: 90vh;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Colour palette */
 .colorPalette {
-    float: right;
+    float: left;
     margin-top: 10vw;
-    margin-right: 30vw;
+    margin-left: 5vw;
     width: 8vw;
     height: 30vw;
     z-index: 2;
@@ -142,6 +149,12 @@ body {
     z-index: 1;
 }
 
+.member-chosen-item {
+  border: 1px solid rgb(138, 40, 150);
+  position: relative;
+  z-index: 1000;
+}
+
 .txt-btn {
     font-family: "Press Start 2P" !important;
 }
@@ -165,6 +178,7 @@ body {
     width: 100%;
     text-align: left;
 }
+
 .introjs-tooltip {
     border-radius: 0px;
 }
@@ -201,6 +215,3 @@ body {
   .tutorial-card .introjs-skipbutton {
     visibility: hidden;  
 }
-
-
-

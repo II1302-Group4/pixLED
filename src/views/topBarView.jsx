@@ -16,7 +16,7 @@ function topBarView(props) {
           <img src={Logo}/>
         </div>
         <div className="login-btn">
-          <LoginPresenter model={props.model} isLoggedIn={props.isLoggedIn} />
+          <LoginPresenter model={props.model}/>
         </div>
         <div className="tutorial-btn">
           <button className="txt-btn" onClick={onTutorialStart}>Tutorial</button>
@@ -27,12 +27,12 @@ function topBarView(props) {
 
 //Information about logedin user. Maybe put this under "profile" or something instead//
 /*  <span>
-        {!props.model.currentUser ? (
+        {!props.user ? (
           <span>No user logged in</span>
         ) : (
           <>
-            <div>{props.model.currentUser.name}</div>
-            <div>User ID: {props.model.currentUser.id.slice(0, 6)}</div>
+            <div>{props.user.name}</div>
+            <div>User ID: {props.user.id.slice(0, 6)}</div>
           </>
         )}
       </span>*/

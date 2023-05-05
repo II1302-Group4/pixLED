@@ -1,9 +1,9 @@
 import TeamView from "../views/teamView"
 
-function teamPresenter() {
+function team() {
 
     return (
         <TeamView/>
     )
 }
-export default Team;
+export default team;

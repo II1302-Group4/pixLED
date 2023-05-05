@@ -165,3 +165,42 @@ body {
     width: 100%;
     text-align: left;
 }
+.introjs-tooltip {
+    border-radius: 0px;
+}
+.introjs-nextbutton, .introjs-prevbutton {
+    text-align: center;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: transparent;
+    min-height: 23px;
+    min-width: 75px;
+    padding: 0.5vw 12px;
+    text-shadow: 0 0 #222;
+    background: silver;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+}
+.tutorial-card *{
+    border-radius: 0px;
+    background-color: #eddfed;
+    font-family: "Press Start 2P" !important;
+}
+.tutorial-card .introjs-tooltip-title {
+    border-radius: 0px;
+    color: #ffffff;
+    font-size: 12px;
+    background: linear-gradient(90deg, #d929b8, #f79ee7);    
+  }
+  .tutorial-card .introjs-tooltip-header {
+    border-radius: 0px;
+    margin: 2px;
+    background: linear-gradient(90deg, #d929b8, #f79ee7);
+    
+  }
+  .tutorial-card .introjs-skipbutton {
+    visibility: hidden;  
+}
+
+
+

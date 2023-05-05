@@ -33,7 +33,7 @@ function colorPaletteView(props) {
     }
 
     return (
-        <div className="window" id="colour-palette">
+        <div className="window" id="colour-palette" data-title='Choose colour' data-intro='Colour your selected pixel' data-step='2'>
             <div className="title-bar">
                 <div className="title-bar-text">PixLED Palette</div>
             </div>
@@ -44,6 +44,8 @@ function colorPaletteView(props) {
                 <button
                     className="txt-btn"
                     onClick={submit}
+                    data-title='Submit'
+                    data-intro='Submit your changes' data-step='3'
                     disabled={
                         !(props.chosenLED && props.chosenColor) ||
                         props.timer != props.timeout

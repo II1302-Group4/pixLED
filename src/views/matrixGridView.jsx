@@ -38,7 +38,7 @@ export default function matrixGridView(props) {
     }
 
     return (
-        <div className="window" id="grid-window">
+        <div className="window" id="grid-window" data-title='Select pixel' data-intro='Select a pixel on the canvas that you want to modify ' data-step='1'>
             <div className="title-bar">
                 <div className="title-bar-text">PixLED grid</div>
             </div>

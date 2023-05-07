@@ -38,7 +38,7 @@ export default function matrixGridView(props) {
               boxShadow: `1px 1px 8px 8px ${memberHasChosen.color}`,
               backgroundColor: `${color}`,
             }}
-            className="chosen-item"
+            className="member-chosen-item"
           ></div>
         );
       } else {

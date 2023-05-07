@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
-import submitIcon from "../assets/submit.png";
+import checkboxIcon from "../assets/checkbox.png";
+import crossIcon from "../assets/cross.png";
 
 function colorPaletteView(props) {
   function color(color, index) {
@@ -42,18 +43,23 @@ function colorPaletteView(props) {
             {props.colorPaletteArray.map(color)}
           </div>
           <button
-            className="txt-btn"
             onClick={submit}
             data-title='Submit'
             data-intro='Submit your changes' data-step='3'
-            disabled={!(props.chosenLED && props.chosenColor) ||
-              props.timer != props.timeout}
+            className={(props.chosenLED && props.chosenColor) ? "checkbox-enabled" : "checkbox-disabled"}
+            disabled={!(props.chosenLED && props.chosenColor) || props.timer != props.timeout}
           >
-            {props.timer == props.timeout ? (
-              <img src={submitIcon} id="submit-icon" />
+            {
+            props.timer == props.timeout ? (
+              props.chosenColor && props.chosenLED ? (
+                <img src={checkboxIcon} id="checkbox-icon" />
+              ) : (
+                <img src={crossIcon} id="cross-icon" />
+              )
             ) : (
               <span>{props.timer}</span>
-            )}
+            )
+            }
           </button>
         </div>      
     </div>

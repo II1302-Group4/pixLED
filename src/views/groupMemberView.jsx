@@ -9,11 +9,11 @@ function GroupMemberView(props) {
       </li>
     );
   }
-  return (
-    <div>
-      <ul>{props.members.map(Member)}</ul>
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <ul>{props.members.map(Member)}</ul>
+  //   </div>
+  // );
 }
 
 export default GroupMemberView;

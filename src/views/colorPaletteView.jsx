@@ -61,6 +61,7 @@ function colorPaletteView(props) {
             )
             }
           </button>
+          <div className="palette-clear"></div>
         </div>      
     </div>
   );

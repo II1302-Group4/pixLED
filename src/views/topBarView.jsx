@@ -19,7 +19,7 @@ function topBarView(props) {
           <LoginPresenter model={props.model}/>
         </div>
         <div className="tutorial-btn">
-          <button className="txt-btn" onClick={onTutorialStart}>Tutorial</button>
+          <button  onClick={onTutorialStart}>Tutorial</button>
         </div>
       </div>
   );

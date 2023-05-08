@@ -199,7 +199,6 @@ button {
     position: fixed;
     top: 0;
     right: 0;
-    /*background-color: rgba(251, 189, 224, 0.399);*/
     overflow-x: hidden;
     padding-top: 1vh;
     background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));

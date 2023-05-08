@@ -3,7 +3,7 @@ import React from "react";
 function GroupMemberView(props) {
   function Member(member, index) {
     return (
-      <div className="group-member">
+      <div key={index} className="group-member" id={member}>
         <div className="member-name">{member.name}</div>
         <div className="colour-container" style={{ backgroundColor: `${member.color}` }}></div>
       </div>
@@ -12,7 +12,7 @@ function GroupMemberView(props) {
   return (
     <div>
         <h4 className="group-title">Group</h4>
-        {props.members.map(Member)}
+      {props.members.map(Member)}
       
     </div>
   );

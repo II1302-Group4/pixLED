@@ -187,6 +187,9 @@ button {
     height: 2vh;
     margin-right: 1vh;
 }
+.hidden {
+    display: none;
+}
 
 /* --------------------------------------- Dropdown menu */
 

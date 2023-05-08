@@ -1,6 +1,6 @@
-import React, { createRed } from "react";
+import React from "react";
 import "../App.css";
-import {useScreenshot, createFileName } 
+
 
 export default function matrixGridView(props) {
   function LED(color, index) {

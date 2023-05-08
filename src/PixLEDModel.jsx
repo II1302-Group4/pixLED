@@ -145,6 +145,10 @@ class PixLEDModel {
     return await getGroupMembers(groupId);
   }
 
+  async uploadImage(photoURL) {
+    this.notifyObservers({ photoURL: photoURL });
+  }
+
   notifyObservers(payload) {
     try {
       this.observers.forEach((obs) => obs(payload));

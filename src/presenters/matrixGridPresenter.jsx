@@ -40,6 +40,10 @@ function matrixGridPresenter(props) {
   function selectLED(ledNumber) {
     props.model.selectLED(ledNumber);
   }
+
+  function uploadGridState(photoURL) {
+    props.model.uploadImage(photoURL);
+  }
   return (
     <MatrixGridView
       matrixGrid={matrixGrid}
@@ -48,6 +52,7 @@ function matrixGridPresenter(props) {
       chosenColor={pickedColor}
       user={user}
       members={members}
+      uploadGridState={uploadGridState}
     />
   );
 }

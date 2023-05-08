@@ -161,7 +161,8 @@ button {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(74, 74, 74, 0.399);
+    background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));
+    /*background-color: rgba(251, 189, 224, 0.399);*/
     overflow-x: hidden;
     padding-top: 1vh;
 }
@@ -190,6 +191,46 @@ button {
 .hidden {
     display: none;
 }
+/* --------------------------------------- Right sidebar - Group */
+
+.right-sidebar {
+    height: 100%;
+    width: 28vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    /*background-color: rgba(251, 189, 224, 0.399);*/
+    overflow-x: hidden;
+    padding-top: 1vh;
+    background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));
+    
+}
+
+.colour-container {
+    height: 2vh;
+    width: 2vh;
+    border-radius: 50%;
+    float:left;
+    margin-left: 1vw;
+
+}
+.group-member {
+    display:table;
+    margin-bottom: 1vw;
+    
+}
+.member-name {
+    float:right;
+    margin-left: 1vw;
+    font-family: "Press Start 2P" !important;
+    font-size:xx-small;
+
+}
+.group-title {
+    font-family: "Press Start 2P" !important;
+    font-size: medium;
+}
+
 
 /* --------------------------------------- Dropdown menu */
 

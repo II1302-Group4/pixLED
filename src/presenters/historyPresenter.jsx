@@ -1,9 +1,9 @@
-import HistoryView from "../views/HistoryView"
+import HistoryView from "../views/historyView"
 
-function History() {
+function history() {
 
     return (
         <HistoryView/>
     )
 }
-export default History;
+export default history;

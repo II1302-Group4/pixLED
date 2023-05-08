@@ -1,4 +1,4 @@
-import ProfileView from "../views/ProfileView"
+import ProfileView from "../views/profileView"
 
 function Profile() {
 

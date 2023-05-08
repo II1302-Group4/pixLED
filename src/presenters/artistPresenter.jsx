@@ -1,9 +1,9 @@
 import ArtistView from "../views/artistView";
 
-function Artist() {
+function artist() {
 
     return (
         <ArtistView/>
     )
 }
-export default Artist;
+export default artist;

@@ -39,7 +39,7 @@ export default function matrixGridView(props) {
               boxShadow: `1px 1px 8px 8px ${memberHasChosen.color}`,
               backgroundColor: `${color}`,
             }}
-            className="chosen-item"
+            className="member-chosen-item"
           ></div>
         );
       } else {
@@ -61,14 +61,15 @@ export default function matrixGridView(props) {
     props.selectLED(event.target.id);
   }
 
+
   return (
-    <div className="window" id="grid-window">
-      <div className="title-bar">
-        <div className="title-bar-text">PixLED grid</div>
+      <div className="window" id="grid-window" data-title='Select pixel' data-intro='Select a pixel on the canvas that you want to modify ' data-step='1'>
+          <div className="title-bar">
+              <div className="title-bar-text">PixLED grid</div>
+          </div>
+          <div className="window-body">
+              <div className="container">{props.matrixGrid.map(LED)}</div>
+          </div>
       </div>
-      <div className="window-body">
-        <div className="container">{props.matrixGrid.map(LED)}</div>
-      </div>
-    </div>
   );
 }

@@ -46,12 +46,12 @@ function colorPaletteView(props) {
             onClick={submit}
             data-title='Submit'
             data-intro='Submit your changes' data-step='3'
-            className={(props.chosenLED && props.chosenColor) ? "checkbox-enabled" : "checkbox-disabled"}
-            disabled={!(props.chosenLED && props.chosenColor) || props.timer != props.timeout}
+            className={(props.chosenLED && props.chosenColor && props.user) ? "checkbox-enabled" : "checkbox-disabled"}
+            disabled={!(props.chosenLED && props.chosenColor && props.user) || props.timer != props.timeout}
           >
             {
             props.timer == props.timeout ? (
-              props.chosenColor && props.chosenLED ? (
+              props.chosenColor && props.chosenLED && props.user? (
                 <img src={checkboxIcon} id="checkbox-icon" />
               ) : (
                 <img src={crossIcon} id="cross-icon" />

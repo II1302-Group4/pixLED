@@ -22,6 +22,7 @@ function loginPresenter(props) {
     props.model.setMembers([]);
     props.model.selectLED(null);
     props.model.setCurrentUser(null);
+    window.location.reload();
   }
 
   return <span>{<LoginView user={user} signOut={signOut} />}</span>;

@@ -1,9 +1,20 @@
 import React from "react";
-import JoinGroupPresenter from "../presenters/joinGroupPresenter";
+import { useNavigate } from "react-router-dom";
 
 function JoinGroupView(props) {
-  if (!props.model.currentUser) {
+  const navigate = useNavigate();
+  if (!props.currentUser) {
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
     return <div>Please login and try again</div>;
+  }
+
+  if (props.currentUser.group) {
+    setTimeout(() => {
+      navigate("/team");
+    }, 1500);
+    return <div>You are already a member of a group</div>;
   } else {
     return (
       <div>
@@ -11,7 +22,9 @@ function JoinGroupView(props) {
         <button onClick={() => props.acceptInvitation()}>
           Accept invitation
         </button>
-        <button>Decline invitation</button>
+        <button onClick={() => props.rejectInvitation}>
+          Decline invitation
+        </button>
       </div>
     );
   }

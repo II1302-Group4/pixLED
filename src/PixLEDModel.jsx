@@ -122,6 +122,7 @@ class PixLEDModel {
   acceptInvitation(groupId) {
     this.notifyObservers({ groupIdNumber: groupId });
     this.setMembers(this.getGroupMembers(groupId));
+    this.currentUser.group = groupId;
   }
 
   /***
@@ -130,8 +131,8 @@ class PixLEDModel {
    * @param {int} groupId The id of the group
    * @returns {string} The group name
    */
-  async getGroupName(groupId) {
-    return await getGroupName(groupId);
+  async getGroupName() {
+    return await getGroupName(this.currentUser.group);
   }
 
   /***

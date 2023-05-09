@@ -81,8 +81,8 @@ button {
 
 /* --------------------------------------- Matrix grid */
 .grid {
-  float: left;
-  margin-left: 15vw;
+    float: left;
+    margin-left: 10vw;
 }
 .container {
   display: grid;
@@ -108,11 +108,12 @@ button {
 /* --------------------------------------- Colour palette */
 
 .colorPalette {
-  float: left;
-  margin-top: 10vw;
-  margin-left: 5vw;
-  width: 8vw;
-  height: 30vw;
+    float: left;
+    margin-top: 10vw;
+    margin-left: 3vw;
+    width: 8vw;
+    height: 30vw;
+
 }
 .colorPalette .title-bar {
   text-align: left;
@@ -157,14 +158,15 @@ button {
   background-color: rgba(102, 102, 102, 0.476);
 }
 .side-bar {
-  height: 100%;
-  width: 20vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(74, 74, 74, 0.399);
-  overflow-x: hidden;
-  padding-top: 1vh;
+    height: 100%;
+    width: 20vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));
+    /*background-color: rgba(251, 189, 224, 0.399);*/
+    overflow-x: hidden;
+    padding-top: 1vh;
 }
 .login-btn {
   position: absolute;
@@ -191,6 +193,45 @@ button {
 .hidden {
   display: none;
 }
+/* --------------------------------------- Right sidebar - Group */
+
+.right-sidebar {
+    height: 100%;
+    width: 28vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    padding-top: 1vh;
+    background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));
+    
+}
+
+.colour-container {
+    height: 2vh;
+    width: 2vh;
+    border-radius: 50%;
+    float:left;
+    margin-left: 1vw;
+
+}
+.group-member {
+    display:table;
+    margin-bottom: 1vw;
+    
+}
+.member-name {
+    float:right;
+    margin-left: 1vw;
+    font-family: "Press Start 2P" !important;
+    font-size:xx-small;
+
+}
+.group-title {
+    font-family: "Press Start 2P" !important;
+    font-size: medium;
+}
+
 
 /* --------------------------------------- Dropdown menu */
 

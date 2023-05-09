@@ -36,7 +36,7 @@ export default function matrixGridView(props) {
             onClick={clickOnLED}
             id={index}
             style={{
-              boxShadow: `1px 1px 8px 8px ${memberHasChosen.color}`,
+              boxShadow: `0.1vw 0.1vw 0.8vw 0.8vw ${memberHasChosen.color}`,
               backgroundColor: `${color}`,
             }}
             className="member-chosen-item"

@@ -103,11 +103,17 @@ button {
 
 /* Selected cell will get a golden highlight */
 .chosen-item {
-    border: 1px solid rgb(138, 40, 150);
-    box-shadow: 1px 1px 8px 8px rgb(255, 238, 0);
+    border: 0.1vh solid rgb(138, 40, 150);
+    box-shadow: 0.1vh 0.1vh 0.8vh 0.8vh rgb(255, 238, 0);
     position: relative;
     z-index: 2;
 }
+.member-chosen-item {
+    border: 0.1vh solid rgb(138, 40, 150);
+    position: relative;
+    z-index: 1;
+}
+
 
 @media screen and (max-width: 1000px) {
     body {
@@ -134,6 +140,18 @@ button {
     .grid-item {
         border: 0.1vw solid #000000;
     }
+    /* Selected cell will get a golden highlight */
+    .chosen-item {
+        border: 0.1vw solid rgb(138, 40, 150);
+        box-shadow: 0.1vw 0.1vw 0.8vw 0.8vw rgb(255, 238, 0);
+        position: relative;
+        z-index: 2;
+    }
+    .member-chosen-item {
+        border: 0.1vw solid rgb(138, 40, 150);
+        position: relative;
+        z-index: 1;
+    }
 }
 
 /* --------------------------------------- Colour palette */
@@ -142,7 +160,6 @@ button {
     background-color: silver;
     box-shadow: inset -2px -2px #dfdfdf, inset 2px 2px #808080;
 }
-
 @media screen and (min-width: 1001px) {
     .colorPalette {
         float: left;
@@ -178,6 +195,7 @@ button {
     #cross-icon {
         height: 2vh;
     }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -336,12 +354,6 @@ button {
         width: 90vw;
         padding: 30vh 0;
     }
-}
-
-.member-chosen-item {
-    border: 1px solid rgb(138, 40, 150);
-    position: relative;
-    z-index: 1;
 }
 
 .artist-tag {

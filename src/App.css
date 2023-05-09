@@ -303,7 +303,7 @@ button {
 
 .dropdown-menu {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     min-width: 100px;
     padding: 0px 0px;
 }

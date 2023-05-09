@@ -6,87 +6,85 @@ import googleLogo from "../assets/google-logo.png";
 import { useNavigate } from "react-router-dom";
 
 function LoginView(props) {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  function navigateToProfile() {
-    navigate("/profile");
-  }
-  function navigateToTeams() {
-    navigate("/team");
-  }
-  function navigateToHistory() {
-    navigate("/history");
-  }
-  function navigateToArtist() {
-    navigate("/artist");
-  }
-
-  const provider = new GoogleAuthProvider();
-
-  const signInWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-    } catch (error) {
-      console.error("Error signing in with Google", error);
+    function navigateToProfile() {
+        navigate("/profile");
     }
-  };
-
-  const signOutWithGoogle = async () => {
-    try {
-      await signOut(auth);
-      props.signOut();
-    } catch (error) {
-      console.error("Error signing out with Google", error);
+    function navigateToTeams() {
+        navigate("/team");
     }
-  };
+    function navigateToHistory() {
+        navigate("/history");
+    }
+    function navigateToArtist() {
+        navigate("/artist");
+    }
 
-  const [showOptions, setShowOptions] = useState(false);
+    const provider = new GoogleAuthProvider();
 
-  //callback if "options" pressed, then display the options. the dropdownbar function
-  const handleOptionsClick = () => {
-    setShowOptions(!showOptions);
-  };
-  return (
-    <div>
-      {props.user ? (
-        <>
-          <button className="txt-btn" onClick={handleOptionsClick}>
-            Options
-          </button>
-          {showOptions && (
-            <div className="dropdown-menu">
-              <ul>
-                <button className="txt-btn" onClick={navigateToProfile}>
-                  {" "}
-                  Profile{" "}
+    const signInWithGoogle = async () => {
+        try {
+            await signInWithPopup(auth, provider);
+        } catch (error) {
+            console.error("Error signing in with Google", error);
+        }
+    };
+
+    const signOutWithGoogle = async () => {
+        try {
+            await signOut(auth);
+            props.signOut();
+        } catch (error) {
+            console.error("Error signing out with Google", error);
+        }
+    };
+
+    const [showOptions, setShowOptions] = useState(false);
+
+    //callback if "options" pressed, then display the options. the dropdownbar function
+    const handleOptionsClick = () => {
+        setShowOptions(!showOptions);
+    };
+    return (
+        <div>
+            {props.user ? (
+                <>
+                    <button onClick={handleOptionsClick}>Options</button>
+                    {showOptions && (
+                        <div className="dropdown-menu">
+                            <ul>
+                                <button onClick={navigateToProfile}>
+                                    {" "}
+                                    Profile{" "}
+                                </button>
+                                <button onClick={navigateToTeams}>
+                                    {" "}
+                                    Teams{" "}
+                                </button>
+                                <button onClick={navigateToHistory}>
+                                    {" "}
+                                    History{" "}
+                                </button>
+                                <button onClick={navigateToArtist}>
+                                    {" "}
+                                    Artist{" "}
+                                </button>
+                                <button onClick={signOutWithGoogle}>
+                                    Logout
+                                </button>
+                            </ul>
+                        </div>
+                    )}
+                </>
+            ) : (
+                <button onClick={signInWithGoogle}>
+                    <img src={googleLogo} id="google-logo" />
+                    Login
                 </button>
-                <button className="txt-btn" onClick={navigateToTeams}>
-                  {" "}
-                  Teams{" "}
-                </button>
-                <button className="txt-btn" onClick={navigateToHistory}>
-                  {" "}
-                  History{" "}
-                </button>
-                <button className="txt-btn" onClick={navigateToArtist}>
-                  {" "}
-                  Artist{" "}
-                </button>
-                <button className="txt-btn" onClick={signOutWithGoogle}>
-                  Logout
-                </button>
-              </ul>
-            </div>
-          )}
-        </>
-      ) : (
-        <button className="txt-btn" onClick={signInWithGoogle}>
-          <img src={googleLogo} id="google-logo" />
-          Login
-        </button>
-      )}
-    </div>
-  );
+            )}
+        </div>
+    );
 }
 
 export default LoginView;

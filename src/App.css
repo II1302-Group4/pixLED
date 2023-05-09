@@ -305,11 +305,15 @@ button {
 @media screen and (max-width: 1000px) {
     .dropdown-menu {
         position: fixed;
-        top: 50%;
+        top: 35%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 32px !important;
         padding: 32px 64px !important;
+    }
+    .dropdown-menu button {
+        font-size: 18px;
+        padding: 8px 12px;
     }
 }
 @media screen and (min-width: 1001px) {

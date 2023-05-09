@@ -86,7 +86,7 @@ export default function matrixGridView(props) {
           {props.matrixGrid.map(LED)}
         </div>
       </div>
-      {props.members[0].name == props.user.name ? (
+      {props.members[0]?.name == props.user?.name ? (
         <button onClick={takeScreenshot}>Upload Grid State</button>
       ) : null}
     </div>

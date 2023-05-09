@@ -100,7 +100,7 @@ function updateFirebaseFromModel(model) {
           storage,
           "screenshot" + Date.now() + ".png"
         );
-        const response = await fetch(payload.screenshotUrl);
+        const response = await fetch(payload.photoURL);
         const blob = await response.blob();
         await firebaseStorage.uploadBytesResumable(fileRef, blob);
         const photoURL = await firebaseStorage.getDownloadURL(fileRef);
@@ -185,6 +185,11 @@ async function getGroupMembers(groupId) {
   return group.members;
 }
 
+async function getPosts() {
+  const post = await get(ref(db, "historyOfChanges/"));
+  return Object.values(post.val());
+}
+
 export {
   auth,
   firebaseModelPromise,
@@ -192,4 +197,5 @@ export {
   updateModelFromFirebase,
   getGroupName,
   getGroupMembers,
+  getPosts,
 };

@@ -164,6 +164,12 @@ async function getGroupMembers(groupId) {
   return group.members;
 }
 
+async function getColour(index) {
+  const colour = await get(ref(db, "ledMatrix/" + index));
+
+  return colour.val();
+}
+
 export {
   auth,
   firebaseModelPromise,
@@ -171,4 +177,5 @@ export {
   updateModelFromFirebase,
   getGroupName,
   getGroupMembers,
+  getColour,
 };

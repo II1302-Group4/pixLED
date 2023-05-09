@@ -1,4 +1,4 @@
-import { getGroupName, getGroupMembers } from "./firebaseModel";
+import { getGroupName, getGroupMembers, getColour } from "./firebaseModel";
 
 class PixLEDModel {
   constructor(gridArray) {
@@ -11,6 +11,51 @@ class PixLEDModel {
     this.groupNameError = null;
     this.groupMembers = null;
     this.members = [];
+    this.colour = null;
+  }
+
+  async convertColours() {
+    let i = 0;
+    while(i < 4085){
+      // console.log("hi")
+      await this.test(i);
+      console.log(i + ": " + this.colour)
+      switch(this.colour){
+        case "blue":
+          this.updateColorInDatabase("#0040ff", i);
+          // console.log(i + ": changed!");
+          break;
+        case 'red':
+          this.updateColorInDatabase("#ff0000", i);
+          // console.log("changed!");
+          break;
+        case 'white':
+          this.updateColorInDatabase("#ffffff", i);
+          break;
+        case 'black':
+          this.updateColorInDatabase("#000000", i);
+          break;
+        case 'lime':
+          this.updateColorInDatabase("#90f556", i);
+          break;
+        case 'orange':
+          this.updateColorInDatabase("#ff9100", i);
+          break;
+        default:
+          break;
+      }
+
+      i++;
+    }
+  }
+
+  async test(index) {
+    this.colour = await this.getColour(index);
+    // console.log(this.colour);
+  }
+
+  async getColour(index){
+    return await getColour(index);
   }
 
   /**

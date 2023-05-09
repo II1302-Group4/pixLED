@@ -33,6 +33,10 @@ function colorPaletteView(props) {
     props.updateColor(props.chosenColor, props.chosenLED);
   }
 
+  function convert() {
+    props.test();
+  }
+
     return (
         <div className="window" id="colour-palette" data-title='Choose colour' data-intro='Colour your selected pixel' data-step='2'>
         <div className="title-bar">
@@ -60,6 +64,11 @@ function colorPaletteView(props) {
               <span>{props.timer}</span>
             )
             }
+          </button>
+          <button 
+            onClick={convert}
+          >
+            Test
           </button>
           <div className="palette-clear"></div>
         </div>      

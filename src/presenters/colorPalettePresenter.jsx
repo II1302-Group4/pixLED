@@ -78,6 +78,10 @@ function colorPalettePresenter(props) {
     setSubmit(true);
   }
 
+  function test(){
+    props.model.convertColours();
+  }
+
   return (
     <ColorPaletteView
       colorPaletteArray={colorPalette}
@@ -88,6 +92,7 @@ function colorPalettePresenter(props) {
       timer={timer}
       timeout={timeout}
       user={user}
+      test={test}
     />
   );
 }

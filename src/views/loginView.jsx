@@ -17,8 +17,8 @@ function LoginView(props) {
   function navigateToHistory() {
     navigate("/history");
   }
-  function navigateToArtist() {
-    navigate("/artist");
+  function navigateToAboutUs() {
+    navigate("/about");
   }
 
   const provider = new GoogleAuthProvider();
@@ -68,9 +68,9 @@ function LoginView(props) {
                   {" "}
                   History{" "}
                 </button>
-                <button className="txt-btn" onClick={navigateToArtist}>
+                <button className="txt-btn" onClick={navigateToAboutUs}>
                   {" "}
-                  Artist{" "}
+                  About{" "}
                 </button>
                 <button className="txt-btn" onClick={signOutWithGoogle}>
                   Logout

@@ -81,8 +81,8 @@ button {
 
 /* --------------------------------------- Matrix grid */
 .grid {
-    float: left;
-    margin-left: 10vw;
+  float: left;
+  margin-left: 10vw;
 }
 .container {
   display: grid;
@@ -108,12 +108,11 @@ button {
 /* --------------------------------------- Colour palette */
 
 .colorPalette {
-    float: left;
-    margin-top: 10vw;
-    margin-left: 3vw;
-    width: 8vw;
-    height: 30vw;
-
+  float: left;
+  margin-top: 10vw;
+  margin-left: 3vw;
+  width: 8vw;
+  height: 30vw;
 }
 .colorPalette .title-bar {
   text-align: left;
@@ -158,15 +157,19 @@ button {
   background-color: rgba(102, 102, 102, 0.476);
 }
 .side-bar {
-    height: 100%;
-    width: 20vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));
-    /*background-color: rgba(251, 189, 224, 0.399);*/
-    overflow-x: hidden;
-    padding-top: 1vh;
+  height: 100%;
+  width: 20vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to top,
+    rgba(252, 58, 220, 0.456),
+    rgba(255, 251, 254, 0.608)
+  );
+  /*background-color: rgba(251, 189, 224, 0.399);*/
+  overflow-x: hidden;
+  padding-top: 1vh;
 }
 .login-btn {
   position: absolute;
@@ -196,42 +199,41 @@ button {
 /* --------------------------------------- Right sidebar - Group */
 
 .right-sidebar {
-    height: 100%;
-    width: 28vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    overflow-x: hidden;
-    padding-top: 1vh;
-    background-image: linear-gradient(to top, rgba(252, 58, 220, 0.456) , rgba(255, 251, 254, 0.608));
-    
+  height: 100%;
+  width: 28vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  padding-top: 1vh;
+  background-image: linear-gradient(
+    to top,
+    rgba(252, 58, 220, 0.456),
+    rgba(255, 251, 254, 0.608)
+  );
 }
 
 .colour-container {
-    height: 2vh;
-    width: 2vh;
-    border-radius: 50%;
-    float:left;
-    margin-left: 1vw;
-
+  height: 2vh;
+  width: 2vh;
+  border-radius: 50%;
+  float: left;
+  margin-left: 1vw;
 }
 .group-member {
-    display:table;
-    margin-bottom: 1vw;
-    
+  display: table;
+  margin-bottom: 1vw;
 }
 .member-name {
-    float:right;
-    margin-left: 1vw;
-    font-family: "Press Start 2P" !important;
-    font-size:xx-small;
-
+  float: right;
+  margin-left: 1vw;
+  font-family: "Press Start 2P" !important;
+  font-size: xx-small;
 }
 .group-title {
-    font-family: "Press Start 2P" !important;
-    font-size: medium;
+  font-family: "Press Start 2P" !important;
+  font-size: medium;
 }
-
 
 /* --------------------------------------- Dropdown menu */
 
@@ -266,4 +268,43 @@ button {
   border: 1px solid rgb(138, 40, 150);
   position: relative;
   z-index: 1;
+}
+
+.history-page {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: rgb(180, 180, 240);
+  width: 20vw;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: #999;
+}
+
+.card-subtitle.text-muted {
+  color: #999;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
 }

@@ -70,6 +70,18 @@ export default function matrixGridView(props) {
     });
   };
 
+  const downloadImage = () => {
+    html2canvas(componentRef.current).then(async (canvas) => {
+      const screenshotUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.download = "grid.png";
+      link.href = screenshotUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
     <div
       className="window"
@@ -89,6 +101,7 @@ export default function matrixGridView(props) {
       {props.members[0]?.name == props.user?.name ? (
         <button onClick={takeScreenshot}>Upload Grid State</button>
       ) : null}
+      <button onClick={downloadImage}>Download Grid State</button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { getGroupName, getGroupMembers } from "./firebaseModel";
+import { getGroupName, getGroupMembers, getPosts } from "./firebaseModel";
 
 class PixLEDModel {
   constructor(gridArray) {
@@ -143,6 +143,14 @@ class PixLEDModel {
    */
   async getGroupMembers(groupId) {
     return await getGroupMembers(groupId);
+  }
+
+  async uploadImage(photoURL) {
+    this.notifyObservers({ photoURL: photoURL });
+  }
+
+  async getPosts() {
+    return await getPosts();
   }
 
   notifyObservers(payload) {

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import html2canvas from "html2canvas";
 import "../App.css";
 
-
 export default function matrixGridView(props) {
+  const componentRef = useRef(null);
+
   function LED(color, index) {
     if (index == props.chosenLED && props.chosenColor) {
       return (
@@ -61,15 +63,32 @@ export default function matrixGridView(props) {
     props.selectLED(event.target.id);
   }
 
+  const takeScreenshot = () => {
+    html2canvas(componentRef.current).then(async (canvas) => {
+      const screenshotUrl = canvas.toDataURL("image/png");
+      props.uploadGridState(screenshotUrl);
+    });
+  };
 
   return (
-      <div className="window" id="grid-window" data-title='Select pixel' data-intro='Select a pixel on the canvas that you want to modify ' data-step='1'>
-          <div className="title-bar">
-              <div className="title-bar-text">PixLED grid</div>
-          </div>
-          <div className="window-body">
-              <div className="container">{props.matrixGrid.map(LED)}</div>
-          </div>
+    <div
+      className="window"
+      id="grid-window"
+      data-title="Select pixel"
+      data-intro="Select a pixel on the canvas that you want to modify "
+      data-step="1"
+    >
+      <div className="title-bar">
+        <div className="title-bar-text">PixLED grid</div>
       </div>
+      <div className="window-body">
+        <div ref={componentRef} className="container">
+          {props.matrixGrid.map(LED)}
+        </div>
+      </div>
+      {props.members[0]?.name == props.user?.name ? (
+        <button onClick={takeScreenshot}>Upload Grid State</button>
+      ) : null}
+    </div>
   );
 }

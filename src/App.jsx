@@ -43,7 +43,7 @@ function App(props) {
           />
 
           <Route path="artist" element={<Artist />} />
-          <Route path="history" element={<History />} />
+          <Route path="history" element={<History model={props.model} />} />
           <Route path="profile" element={<Profile />} />
           <Route path="team" element={<Team model={props.model} />} />
         </Routes>

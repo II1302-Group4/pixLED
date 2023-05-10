@@ -91,6 +91,8 @@ export default function matrixGridView(props) {
         data-intro="Select a pixel on the canvas that you want to modify "
         data-step="1"
       >
+       {props.user? null: 
+        <div className="login-alert"><div>Login to participate</div></div>}
         <div className="title-bar">
           <div className="title-bar-text">PixLED grid</div>
         </div>

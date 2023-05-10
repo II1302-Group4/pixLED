@@ -16,6 +16,17 @@ function GroupMembers(props) {
     }
     return isTakenDownACB;
   }
-  return <GroupMemberView members={members} />;
+
+
+  
+
+  return (
+    <>
+    {members.length == 0? null: 
+  <div className="right-sidebar">
+  <GroupMemberView members={members} />
+  </div>}
+  </>
+  );
 }
 export default GroupMembers;

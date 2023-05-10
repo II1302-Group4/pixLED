@@ -29,6 +29,22 @@ button {
 .main {
   margin-left: 5vw;
 }
+.login-alert{
+  height: 8vh;
+  width: 88vh;
+  color: #FFFFFF;
+  background-color: #ff34bfd9;
+  border-top: #000000 solid 2px;
+  border-bottom: #000000 solid 2px;
+  z-index: 5;
+  position: fixed;
+  margin-top: 40vh;
+  margin-left:1vh;
+  font-family: "Press Start 2P";
+}
+.login-alert div{
+  padding: 2vw 0;
+}
 
 /* --------------------------------------- 98.css changes */
 
@@ -240,7 +256,7 @@ button {
     }
 }
 
-/* --------------------------------------- Side or top bar */
+/* ---------------------------------------  Sidebar or top bar */
 
 .hidden {
 display: none;
@@ -329,6 +345,7 @@ display: none;
     rgba(252, 58, 220, 0.456),
     rgba(255, 251, 254, 0.608)
   );
+  z-index: 2;
 }
 
 .colour-container {

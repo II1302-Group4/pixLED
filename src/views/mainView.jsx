@@ -7,6 +7,8 @@ function MainView(props) {
   function createGroup() {
     navigate("/createGroup");
   }
+
+
   return (
     <div className="main">
       <div className="grid">
@@ -16,10 +18,8 @@ function MainView(props) {
       <div className="colorPalette">
         <ColorPalettePresenter model={props.model} />
       </div>
-      <div className="right-sidebar">
+
       <GroupMembers model={props.model} />
-      </div>
-      {/* <button onClick={createGroup}>Create a group</button> */}
     </div>
   );
 }

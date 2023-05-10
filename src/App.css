@@ -26,6 +26,22 @@ button {
 .main {
   margin-left: 5vw;
 }
+.login-alert{
+  height: 8vh;
+  width: 88vh;
+  color: #FFFFFF;
+  background-color: #ff34bfd9;
+  border-top: #000000 solid 2px;
+  border-bottom: #000000 solid 2px;
+  z-index: 5;
+  position: fixed;
+  margin-top: 40vh;
+  margin-left:1vh;
+  font-family: "Press Start 2P";
+}
+.login-alert div{
+  padding: 2vw 0;
+}
 
 /* --------------------------------------- 98.css changes */
 
@@ -146,7 +162,7 @@ button {
   box-shadow: inset -2px -2px #dfdfdf, inset 2px 2px #808080;
 }
 
-/* --------------------------------------- Side or top bar */
+/* ---------------------------------------  or top bar */
 
 .top-bar {
   position: fixed;
@@ -155,6 +171,7 @@ button {
   left: 0;
   top: 0;
   background-color: rgba(102, 102, 102, 0.476);
+
 }
 .side-bar {
   height: 100%;
@@ -170,6 +187,7 @@ button {
   /*background-color: rgba(251, 189, 224, 0.399);*/
   overflow-x: hidden;
   padding-top: 1vh;
+  z-index: 2;
 }
 .login-btn {
   position: absolute;
@@ -211,6 +229,7 @@ button {
     rgba(252, 58, 220, 0.456),
     rgba(255, 251, 254, 0.608)
   );
+  z-index: 2;
 }
 
 .colour-container {

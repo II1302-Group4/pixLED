@@ -162,7 +162,7 @@ button {
   box-shadow: inset -2px -2px #dfdfdf, inset 2px 2px #808080;
 }
 
-/* ---------------------------------------  or top bar */
+/* ---------------------------------------  Sidebar or top bar */
 
 .top-bar {
   position: fixed;
@@ -184,7 +184,6 @@ button {
     rgba(252, 58, 220, 0.456),
     rgba(255, 251, 254, 0.608)
   );
-  /*background-color: rgba(251, 189, 224, 0.399);*/
   overflow-x: hidden;
   padding-top: 1vh;
   z-index: 2;

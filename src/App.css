@@ -242,16 +242,25 @@ button {
 
 /* --------------------------------------- Side or top bar */
 
+.hidden {
+display: none;
+}
+
 @media screen and (min-width: 1001px) {
     .side-bar {
-        position: fixed;
         height: 100%;
         width: 20vh;
+        position: fixed;
         top: 0;
         left: 0;
-        background-color: rgba(74, 74, 74, 0.399);
+        background-image: linear-gradient(
+            to top,
+            rgba(252, 58, 220, 0.456),
+            rgba(255, 251, 254, 0.608)
+        );
         overflow-x: hidden;
         padding-top: 1vh;
+        z-index: 2;
     }
     .login-btn {
         position: absolute;
@@ -269,6 +278,11 @@ button {
         bottom: 2vh;
         width: 8vh;
         height: 8vh;
+    }
+    #google-logo {
+        width: 2vh;
+        height: 2vh;
+        margin-right: 1vh;
     }
 }
 
@@ -299,14 +313,7 @@ button {
     }
 }
 
-#google-logo {
-  width: 2vh;
-  height: 2vh;
-  margin-right: 1vh;
-}
-.hidden {
-  display: none;
-}
+
 /* --------------------------------------- Right sidebar - Group */
 
 .right-sidebar {
@@ -405,7 +412,7 @@ button {
 
 .artist-tag {
     font-family: "Press Start 2P" !important;
-
+}
 .history-page {
   display: flex;
   align-items: center;

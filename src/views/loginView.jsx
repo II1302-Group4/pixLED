@@ -47,10 +47,11 @@ function LoginView(props) {
   const handleOptionsClick = () => {
     setShowOptions(!showOptions);
   };
+
   return (
     <div>
       {props.user ? (
-        <>
+        <>  
           <button className="txt-btn" onClick={handleOptionsClick}>
             Options
           </button>
@@ -76,9 +77,18 @@ function LoginView(props) {
                 <button className="txt-btn" onClick={signOutWithGoogle}>
                   Logout
                 </button>
-            )}
-        </div>
-    );
+              </ul>
+            </div>
+          )}
+        </>
+      ) : (
+        <button onClick={signInWithGoogle}>
+          <img src={googleLogo} id="google-logo" />
+          Login
+        </button>
+      )}
+    </div>
+  );
 }
 
 export default LoginView;

@@ -195,7 +195,9 @@ button {
     #cross-icon {
         height: 2vh;
     }
-
+    .group-button {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -231,6 +233,9 @@ button {
     }
     .palette-clear {
         clear: both;
+    }
+    .group-button {
+        display: auto;
     }
 }
 

@@ -14,11 +14,13 @@ import { getAuth } from "firebase/auth";
 import firebaseConfig from "./firebaseConfig";
 
 import PixLEDModel from "./PixLEDModel";
+import * as firebaseStorage from "firebase/storage";
 
 firebase.initializeApp(firebaseConfig);
 
 const db = getDatabase();
 const auth = getAuth();
+const storage = firebaseStorage.getStorage();
 
 function updateFirebaseFromModel(model) {
   function getRandomColor() {
@@ -90,6 +92,25 @@ function updateFirebaseFromModel(model) {
 
         update(ref(db, `groups/${group[0]}/members/${member[0]}`), {
           previewLEDIndex: payload.ledIndex,
+        });
+      }
+
+      if (payload.hasOwnProperty("photoURL")) {
+        const fileRef = firebaseStorage.ref(
+          storage,
+          "screenshot" + Date.now() + ".png"
+        );
+        const response = await fetch(payload.photoURL);
+        const blob = await response.blob();
+        await firebaseStorage.uploadBytesResumable(fileRef, blob);
+        const photoURL = await firebaseStorage.getDownloadURL(fileRef);
+
+        const groupName = await getGroupName(model.currentUser.group);
+
+        set(ref(db, "historyOfChanges/" + Date.now() + auth.currentUser.uid), {
+          photoURL: photoURL,
+          groupName: groupName,
+          date: new Date().toISOString(),
         });
       }
     }
@@ -164,6 +185,11 @@ async function getGroupMembers(groupId) {
   return group.members;
 }
 
+async function getPosts() {
+  const post = await get(ref(db, "historyOfChanges/"));
+  return Object.values(post.val());
+}
+
 export {
   auth,
   firebaseModelPromise,
@@ -171,4 +197,5 @@ export {
   updateModelFromFirebase,
   getGroupName,
   getGroupMembers,
+  getPosts,
 };

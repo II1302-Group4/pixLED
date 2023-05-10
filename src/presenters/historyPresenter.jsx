@@ -1,9 +1,16 @@
-import HistoryView from "../views/historyView"
+import React from "react";
+import HistoryView from "../views/historyView";
 
-function history() {
+function History(props) {
+  const [posts, setPosts] = React.useState([]);
 
-    return (
-        <HistoryView/>
-    )
+  React.useEffect(() => {
+    async function fetchData() {
+      setPosts(await props.model.getPosts());
+    }
+    fetchData();
+  }, []);
+
+  return <HistoryView posts={posts} />;
 }
-export default history;
+export default History;

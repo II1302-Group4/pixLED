@@ -4,7 +4,7 @@ import TopBarPresenter from "./presenters/topBarPresenter";
 import CreateGroup from "./presenters/createGroupPresenter.jsx";
 
 import JoinGroup from "./presenters/joinGroupPresenter";
-import Artist from "./presenters/artistPresenter";
+import About from "./views/aboutView";
 import History from "./presenters/historyPresenter";
 import Profile from "./presenters/profilePresenter";
 import Team from "./presenters/teamPresenter";
@@ -42,8 +42,8 @@ function App(props) {
             element={<JoinGroup model={props.model} />}
           />
 
-          <Route path="artist" element={<Artist />} />
-          <Route path="history" element={<History />} />
+          <Route path="about" element={<About />} />
+          <Route path="history" element={<History model={props.model} />} />
           <Route path="profile" element={<Profile />} />
           <Route path="team" element={<Team model={props.model} />} />
         </Routes>

@@ -86,7 +86,6 @@ export default function matrixGridView(props) {
     <>
       <div
         className="window"
-        id="grid-window"
         data-title="Select pixel"
         data-intro="Select a pixel on the canvas that you want to modify "
         data-step="1"
@@ -106,7 +105,6 @@ export default function matrixGridView(props) {
         ) : null}
         <button onClick={downloadImage}>Download Grid State</button>  
       </div>
-      <span className="artist-tag">Background artwork by @grabrela_arts</span>
     </>
   );
 }

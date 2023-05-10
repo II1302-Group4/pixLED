@@ -11,6 +11,7 @@ class PixLEDModel {
     this.groupNameError = null;
     this.groupMembers = null;
     this.members = [];
+    this.openMGroup = false;
   }
 
   /**
@@ -36,6 +37,15 @@ class PixLEDModel {
    */
   setPaletteColor(color) {
     this.paletteColor = color;
+    this.notifyObservers();
+  }
+
+  /**
+   * 
+   */
+  openMobileGroup() {
+    this.openMGroup = this.openMGroup ? false : true;
+    console.log("Open group: " + this.openMGroup);
     this.notifyObservers();
   }
 

@@ -20,7 +20,7 @@ function MainView(props) {
       <div className="colorPalette">
         <ColorPalettePresenter model={props.model} />
       </div>
-      {props.openMobileGroup ? <GroupMembers model={props.model} /> : null }
+      {(props.openMobileGroup || (window.screen.width >= 1000)) ? <GroupMembers model={props.model} /> : console.log("meh")}
     </div>
   );
 }

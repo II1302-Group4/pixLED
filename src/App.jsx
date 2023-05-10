@@ -20,7 +20,6 @@ function App(props) {
             path="/"
             element={
               <>
-                <div className="artist-tag">Background artwork by @grabrela_arts</div>
                 <div className="side-bar">
                   <TopBarPresenter model={props.model} />
                 </div>

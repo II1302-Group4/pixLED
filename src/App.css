@@ -469,24 +469,10 @@ display: none;
   padding: 30vh 0;
 }
 
-.artist-tag {
-  width: 10vw;
-  font-family: "Press Start 2P";
-  position: absolute;
-  margin-left: 65vw;
-}
-
 @media screen and (max-width: 1000px) {
   #loading {
     width: 90vw;
     padding: 30vh 0;
-  }
-
-  .artist-tag {
-    width: 100vw;
-    margin-top: 12.5vh;
-    margin-left: 0;
-    font-size: 0.8em;
   }
 }
 

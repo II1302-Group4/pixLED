@@ -6,7 +6,8 @@ import googleLogo from "../assets/google-logo.png";
 import { useNavigate } from "react-router-dom";
 
 function LoginView(props) {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+
 
   function navigateToProfile() {
     navigate("/profile");
@@ -21,26 +22,26 @@ function LoginView(props) {
     navigate("/about");
   }
 
-  const provider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
 
-  const signInWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-    } catch (error) {
-      console.error("Error signing in with Google", error);
-    }
-  };
+    const signInWithGoogle = async () => {
+        try {
+            await signInWithPopup(auth, provider);
+        } catch (error) {
+            console.error("Error signing in with Google", error);
+        }
+    };
 
-  const signOutWithGoogle = async () => {
-    try {
-      await signOut(auth);
-      props.signOut();
-    } catch (error) {
-      console.error("Error signing out with Google", error);
-    }
-  };
+    const signOutWithGoogle = async () => {
+        try {
+            await signOut(auth);
+            props.signOut();
+        } catch (error) {
+            console.error("Error signing out with Google", error);
+        }
+    };
 
-  const [showOptions, setShowOptions] = useState(false);
+    const [showOptions, setShowOptions] = useState(false);
 
   //callback if "options" pressed, then display the options. the dropdownbar function
   const handleOptionsClick = () => {
@@ -75,18 +76,9 @@ function LoginView(props) {
                 <button className="txt-btn" onClick={signOutWithGoogle}>
                   Logout
                 </button>
-              </ul>
-            </div>
-          )}
-        </>
-      ) : (
-        <button className="txt-btn" onClick={signInWithGoogle}>
-          <img src={googleLogo} id="google-logo" />
-          Login
-        </button>
-      )}
-    </div>
-  );
+            )}
+        </div>
+    );
 }
 
 export default LoginView;

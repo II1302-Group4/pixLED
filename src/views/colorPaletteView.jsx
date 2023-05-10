@@ -61,6 +61,17 @@ function colorPaletteView(props) {
             )
             }
           </button>
+          {props.user ? (
+            <button
+              className="group-button"
+            >
+              My group
+            </button>
+          ):(
+            null
+          )
+          }
+          <div className="palette-clear"></div>
         </div>      
     </div>
   );

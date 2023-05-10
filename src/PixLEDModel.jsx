@@ -72,6 +72,13 @@ class PixLEDModel {
   setGroup(name, uuid) {
     try {
       this.notifyObservers({ groupName: name, uuid: uuid });
+      const user = {
+        id: this.currentUser.id,
+        name: this.currentUser.name,
+        group: uuid
+      }
+      this.setCurrentUser(user);
+      this.notifyObservers();
     } catch (error) {
       console.log(error);
     }
@@ -128,9 +135,10 @@ class PixLEDModel {
    * User has accepted to join a group
    * @param {int} groupId The id of the group the user wants to join
    */
-  acceptInvitation(groupId) {
+  async acceptInvitation(groupId) {
     this.notifyObservers({ groupIdNumber: groupId });
-    this.setMembers(this.getGroupMembers(groupId));
+    const members = this.getGroupMembers(groupId);
+    this.setMembers(members);
     this.currentUser.group = groupId;
   }
 
@@ -142,6 +150,10 @@ class PixLEDModel {
    */
   async getGroupName() {
     return await getGroupName(this.currentUser.group);
+  }
+
+  async getGroupNameToShowOnInvitationPage(id)  {
+    return await getGroupName(id);
   }
 
   /***

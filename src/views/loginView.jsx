@@ -58,10 +58,7 @@ function LoginView(props) {
           {showOptions && (
             <div className="dropdown-menu">
               <ul>
-                <button className="txt-btn" onClick={navigateToProfile}>
-                  {" "}
-                  Profile{" "}
-                </button>
+  
                 <button className="txt-btn" onClick={navigateToTeams}>
                   {" "}
                   Teams{" "}

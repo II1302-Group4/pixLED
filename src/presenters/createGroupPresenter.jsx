@@ -10,12 +10,6 @@ function CreateGroup(props) {
   function saveGroupName(groupName) {
     const uuid = v4();
     props.model.setGroup(groupName, uuid);
-
-    if (props.model.groupNameError) {
-      setError(props.model.groupNameError);
-    } else {
-      navigate("/groups/" + uuid);
-    }
   }
   return <CreateGroupView error={error} saveGroupName={saveGroupName} />;
 }

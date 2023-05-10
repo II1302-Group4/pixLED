@@ -6,7 +6,6 @@ import CreateGroup from "./presenters/createGroupPresenter.jsx";
 import JoinGroup from "./presenters/joinGroupPresenter";
 import About from "./views/aboutView";
 import History from "./presenters/historyPresenter";
-import Profile from "./presenters/profilePresenter";
 import Team from "./presenters/teamPresenter";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 function App(props) {
@@ -45,7 +44,6 @@ function App(props) {
 
           <Route path="about" element={<About />} />
           <Route path="history" element={<History model={props.model} />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="team" element={<Team model={props.model} />} />
         </Routes>
       </Router>

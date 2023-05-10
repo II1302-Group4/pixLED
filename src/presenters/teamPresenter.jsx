@@ -6,7 +6,6 @@ import { v4 } from "uuid";
 function TeamPage(props) {
   const navigate = useNavigate();
 
-  const { id } = useParams();
   const [groupName, setGroupName] = React.useState(null);
   const [groupMembers, setGroupMembers] = React.useState(null);
   const [groupId, setGroupId] = React.useState(null);
@@ -20,12 +19,26 @@ function TeamPage(props) {
       }
     }
     fetchData();
-  }, [id]);
+    props.model.addObserver(observerACB);
+    function isTakenDownACB() {
+      props.model.removeObserver(observerACB);
+    }
+    return isTakenDownACB;
+  }, []);
+
+
+  async function observerACB() {
+    setGroupName(await props.model.getGroupName());
+    setGroupMembers(props.model.members);
+    setGroupId(props.model.currentUser.group);  
+  }
+
+  
 
   function saveGroupName(groupName) {
     const uuid = v4();
     props.model.setGroup(groupName, uuid);
-    navigate("/groups/" + uuid);
+    window.location.reload()
   }
 
   return (

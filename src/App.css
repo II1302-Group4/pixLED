@@ -26,6 +26,7 @@ button {
   font-family: "Press Start 2P" !important;
 }
 
+
 .main {
   margin-left: 5vw;
 }
@@ -335,7 +336,7 @@ display: none;
 .right-sidebar {
   height: 100%;
   width: 28vh;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   overflow-x: hidden;
@@ -358,6 +359,12 @@ display: none;
 .group-member {
   display: table;
   margin-bottom: 1vw;
+}
+
+.group-member-team-page {
+  display: flex;
+  margin-bottom: 1vw;
+  margin-top: 1vw;
 }
 .member-name {
   float: right;
@@ -468,3 +475,140 @@ display: none;
   width: 100%;
   height: auto;
 }
+/* --------------------------------------- Team/Group page */
+.group-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.team-page .window {
+  border-radius: 2px;
+  background-color: #edcbed;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+
+}
+/* The colourful bar at the top of a window */
+.team-page .title-bar {
+  background: linear-gradient(90deg, #d929b8, #f79ee7);
+  display: flex;
+  justify-content: center;
+}
+
+.team-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.team-page > div {
+  margin: 2vw;
+
+}
+#team-title {
+  font-family: "Press Start 2P" !important;
+  font-size: xx-large;
+}
+
+.team-page a {
+  padding: 1vw;
+}
+
+#create-group-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+
+}
+
+#create-group-form .title-bar {
+  width: 99%;
+}
+
+#create-group-form > * {
+  margin-bottom: 10px;
+}
+
+
+/* --------------------------------------- History page */
+
+.history-page {
+overflow-y: auto; 
+padding: 1vh 0;
+}
+
+.history-page .window {
+  margin: 1vh;
+}
+
+.posts-container {
+  justify-content: center;
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+/* --------------------------------------- About page */
+
+.about-page .window{
+  width: 40vw;
+  margin: 2vw
+  
+}
+
+.about-page {
+  padding: 1vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.about-page .title-bar {
+  background: linear-gradient(90deg, #d929b8, #f79ee7);
+  display: flex;
+  justify-content: center;
+}
+
+.about-page p {
+  font-size: medium;
+  padding: 1vw;
+  line-height: 20pt;
+  display: flex;
+  justify-content: center;
+}
+
+.about-page ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-weight: bold;
+}
+/* --------------------------------------- Invite page */
+
+.invite-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invite-page .window {
+    width: 50vw;
+}
+
+
+.invite-page .window button {
+  margin: 1vw
+
+}
+

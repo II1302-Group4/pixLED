@@ -5,13 +5,15 @@ function HistoryView(props) {
   function Post({ groupName, photoURL, date }, index) {
     const newDate = new Date(date);
     return (
-      <div key={index} class="card">
-        <div class="card-body">
-          <h4 class="card-title">{groupName}</h4>
-          <h6 class="card-subtitle mb-2 text-muted">{`${newDate.toLocaleDateString()} ${newDate.toLocaleTimeString(
+      <div key={index} className="post window">
+        <div className="title-bar">
+        <div className="title-bar-text">{`${newDate.toLocaleDateString()} ${newDate.toLocaleTimeString(
             [],
             { hour: "2-digit", minute: "2-digit" }
-          )}`}</h6>
+          )}`}</div>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{groupName}</h4>
           <a href={photoURL}>
             <img src={photoURL} height={250} width={250} />
           </a>
@@ -20,7 +22,7 @@ function HistoryView(props) {
     );
   }
 
-  return <div className="history-page">{props.posts.map(Post)}</div>;
+  return <div className="history-page"> <button onClick={() => navigate("/")}>Back</button><div className="posts-container">{props.posts.map(Post)}</div> </div>;
 }
 
 export default HistoryView;

@@ -41,11 +41,10 @@ class PixLEDModel {
   }
 
   /**
-   * 
+   * Opens/closes group list in the mobile version 
    */
   openMobileGroup() {
     this.openMGroup = this.openMGroup ? false : true;
-    console.log("Open group: " + this.openMGroup);
     this.notifyObservers();
   }
 

@@ -3,7 +3,7 @@ import React from "react";
 
 function GroupMembers(props) {
   const [members, setMembers] = React.useState(props.model.members);
-
+  // const [name, getNames] = React.useState(props.model.)
 
   React.useEffect(wasCreatedACB, []);
 

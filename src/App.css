@@ -372,7 +372,8 @@ display: none;
 
 @media screen and (max-width: 1000px){
   .right-sidebar {
-    height: 82%;
+    height: auto;
+    max-height: 70%;
     width: 100%;
     position: fixed;
     top: 0;

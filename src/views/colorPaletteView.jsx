@@ -29,12 +29,17 @@ function colorPaletteView(props) {
     props.colorPicked(event.target.id);
   }
 
+  function openGroupView() {
+    props.openGroup();
+  }
+
   function submit() {
     props.updateColor(props.chosenColor, props.chosenLED);
   }
 
     return (
-        <div className="window" id="colour-palette" data-title='Choose colour' data-intro='Colour your selected pixel' data-step='2'>
+      <>
+      <div className="window" id="colour-palette" data-title='Choose colour' data-intro='Colour your selected pixel' data-step='2'>
         <div className="title-bar">
           <div className="title-bar-text">PixLED Palette</div>
         </div>
@@ -64,6 +69,7 @@ function colorPaletteView(props) {
           {props.user ? (
             <button
               className="group-button"
+              onClick={openGroupView}
             >
               My group
             </button>
@@ -72,8 +78,9 @@ function colorPaletteView(props) {
           )
           }
           <div className="palette-clear"></div>
-        </div>      
+        </div>    
     </div>
+    </>
   );
 }
 

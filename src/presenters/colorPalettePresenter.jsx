@@ -78,6 +78,10 @@ function colorPalettePresenter(props) {
     setSubmit(true);
   }
 
+  function openGroup() {
+    props.model.openMobileGroup();
+  }
+
   return (
     <ColorPaletteView
       colorPaletteArray={colorPalette}
@@ -88,6 +92,7 @@ function colorPalettePresenter(props) {
       timer={timer}
       timeout={timeout}
       user={user}
+      openGroup={openGroup}
     />
   );
 }

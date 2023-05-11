@@ -22,7 +22,7 @@ function HistoryView(props) {
     );
   }
 
-  return <div className="history-page"> <button onClick={() => navigate("/")}>Back</button><div className="posts-container">{props.posts.map(Post)}</div> </div>;
+  return <div className="history-page"> <button onClick={() => navigate("/")}>Back</button><div className="posts-container">{props.posts.reverse().map(Post)}</div> </div>;
 }
 
 export default HistoryView;

@@ -8,10 +8,6 @@ import { useNavigate } from "react-router-dom";
 function LoginView(props) {
     const navigate = useNavigate();
 
-
-  function navigateToProfile() {
-    navigate("/profile");
-  }
   function navigateToTeams() {
     navigate("/team");
   }
@@ -42,6 +38,7 @@ function LoginView(props) {
     };
 
     const [showOptions, setShowOptions] = useState(false);
+
 
   //callback if "options" pressed, then display the options. the dropdownbar function
   const handleOptionsClick = () => {

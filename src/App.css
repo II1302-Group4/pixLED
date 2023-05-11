@@ -2,6 +2,7 @@
 :root {
   padding: 1vh;
   text-align: center;
+  cursor: url("assets/small-pink.png"), auto;
   font-family: "Press Start 2P" !important;
 }
 html {
@@ -21,9 +22,10 @@ body {
   overflow: hidden;
 }
 button {
-    background-color: #edb1e2;
-    min-width: 0;
-    font-family: "Press Start 2P" !important;
+  background-color: #edb1e2;
+  min-width: 0;
+  font-family: "Press Start 2P" !important;
+  cursor: url("assets/small-pointer.png"), auto;
 }
 a {
   color:rgb(138, 40, 150);

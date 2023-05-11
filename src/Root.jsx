@@ -30,5 +30,8 @@ export default function Root() {
     resolve(firebaseModelPromise());
   }, []);
 
-  return promiseNoData(promiseState) || <App model={promiseState.data} />;
+  return promiseNoData(promiseState) ||  
+  <App model={promiseState.data} /> 
+  /*<h1>Under construction... Please wait</h1>*/
+  ;
 }

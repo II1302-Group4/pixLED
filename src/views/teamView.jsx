@@ -19,10 +19,10 @@ function TeamView(props) {
          <div className="title-bar">
           <div className="title-bar-text">|</div>
         </div>
-        <h4 className="group-title">Create a group</h4>
-        <label>Group name:</label>
+        <h4 className="group-title">Create a team</h4>
+        <label>Team name:</label>
         <input id="groupName"></input>
-        <button onClick={setGroupName}>Create group</button>
+        <button onClick={setGroupName}>Create team</button>
       </div>
       </div>
     );
@@ -51,11 +51,11 @@ function TeamView(props) {
       </div>
       <div className="window">
         <div className="title-bar">
-        <div className="title-bar-text">Group</div>
+        <div className="title-bar-text">Team</div>
         </div>
         <div className="group-container">
         {props.groupMembers.map(Member)}
-        <button>Leave group</button>
+        <button>Leave the team</button>
         </div>
       </div>
     </div>

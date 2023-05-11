@@ -26,7 +26,7 @@ function JoinGroupView(props) {
         <div className="title-bar">
           <div className="title-bar-text">|</div>
         </div>
-        <h3>You have been invited to join <br/>Group {props.groupName}</h3>
+        <h3>You have been invited to join <br/>Team {props.groupName}</h3>
         <button onClick={acceptInvitation}>
           Accept invitation
         </button>

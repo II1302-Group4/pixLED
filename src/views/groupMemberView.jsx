@@ -11,7 +11,7 @@ function GroupMemberView(props) {
   }
   return (
     <div>
-        <h4 className="group-title">Group</h4>
+        <h4 className="group-title">Team</h4>
       {props.members.map(Member)}
       
     </div>

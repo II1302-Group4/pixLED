@@ -25,6 +25,9 @@ button {
     min-width: 0;
     font-family: "Press Start 2P" !important;
 }
+a {
+  color:rgb(138, 40, 150);
+}
 
 
 .main {
@@ -604,9 +607,8 @@ padding: 1vh 0;
 /* --------------------------------------- About page */
 
 .about-page .window{
-  width: 40vw;
-  margin: 2vw
-  
+  width: 45vw;
+  margin: 1vw
 }
 
 .about-page {
@@ -638,6 +640,44 @@ padding: 1vh 0;
   padding-left: 0;
   font-weight: bold;
 }
+
+.about-page h4 {
+  color:rgb(205, 15, 231);
+}
+
+@media screen and (max-width: 1000px) {
+  .about-page .window{
+    width: 90vw;
+    margin: 2vw
+  }
+  .about-page {
+    padding: 1vh;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .about-page .title-bar {
+    background: linear-gradient(90deg, #d929b8, #f79ee7);
+    display: flex;
+    justify-content: center;
+  }
+  .about-page p {
+    font-size: medium;
+    padding: 1vw;
+    line-height: 20pt;
+    display: flex;
+    justify-content: center;
+  }
+  .about-page ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-weight: bold;
+  }
+}
+
 /* --------------------------------------- Invite page */
 
 .invite-page {
@@ -652,9 +692,7 @@ padding: 1vh 0;
     width: 50vw;
 }
 
-
 .invite-page .window button {
   margin: 1vw
 
 }
-

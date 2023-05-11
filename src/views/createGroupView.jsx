@@ -9,9 +9,9 @@ function CreateGroupView(props) {
   }
   return (
     <div>
-      <label>Group name:</label>
+      <label>Team name:</label>
       <input id="groupName"></input>
-      <button onClick={setGroupName}>Submit</button>
+      <button onClick={setGroupName}>Create team</button>
     </div>
   );
 }

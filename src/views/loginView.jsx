@@ -58,7 +58,7 @@ function LoginView(props) {
   
                 <button className="txt-btn" onClick={navigateToTeams}>
                   {" "}
-                  Teams{" "}
+                  Team{" "}
                 </button>
                 <button className="txt-btn" onClick={navigateToHistory}>
                   {" "}

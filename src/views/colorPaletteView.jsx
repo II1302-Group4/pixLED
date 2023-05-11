@@ -71,7 +71,7 @@ function colorPaletteView(props) {
               className="group-button"
               onClick={openGroupView}
             >
-              My group
+              My team
             </button>
           ):(
             null

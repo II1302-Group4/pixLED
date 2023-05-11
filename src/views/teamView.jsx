@@ -47,7 +47,7 @@ function TeamView(props) {
       <div className="title-bar">
         <div className="title-bar-text">Invitation link</div>
         </div>
-      <a>http://localhost:5173/invitation/{props.groupId}</a>
+      <a>http://pixled-17de5.web.app/invitation/{props.groupId}</a>
       </div>
       <div className="window">
         <div className="title-bar">

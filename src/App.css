@@ -1,21 +1,24 @@
 /* --------------------------------------- General tags and HTML standard tags */
 :root {
-    padding: 1rem;
-    text-align: center;
-    font-family: "Press Start 2P" !important;
+  padding: 1vh;
+  text-align: center;
+  font-family: "Press Start 2P" !important;
 }
 html {
     margin: 0;
     padding: 0;
 }
 body {
-    background-image: url("assets/backgr.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: rgb(61, 0, 46);
-    margin: 0;
-    padding: 0;
+  background-image: url("assets/backgr.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: rgb(235, 145, 213);
+  margin: 0;
+  padding: 0;
+  clear: both;
+  height: 100vh;
+  overflow: hidden;
 }
 button {
     background-color: #edb1e2;
@@ -23,8 +26,40 @@ button {
     font-family: "Press Start 2P" !important;
 }
 
+
 .main {
     margin-left: 5vw;
+}
+.login-alert{
+  height: 8vh;
+  width: 88vh;
+  color: #FFFFFF;
+  background-color: #ff34bfd9;
+  border-top: #000000 solid 2px;
+  border-bottom: #000000 solid 2px;
+  z-index: 5;
+  position: fixed;
+  margin-top: 40vh;
+  margin-left:1vh;
+  font-family: "Press Start 2P";
+}
+.login-alert div{
+  padding: 2vw 0;
+}
+@media screen and (max-width: 1000px) {
+  .login-alert{
+    height: 8vw;
+    width: 90vw;
+    color: #FFFFFF;
+    background-color: #ff34bfd9;
+    border-top: #000000 solid 2px;
+    border-bottom: #000000 solid 2px;
+    z-index: 5;
+    position: fixed;
+    margin-top: 45vw;
+    margin-left: 2vw;
+    font-family: "Press Start 2P";
+  }
 }
 
 /* --------------------------------------- 98.css changes */
@@ -81,8 +116,9 @@ button {
 
 /* --------------------------------------- Matrix grid */
 .grid {
-    float: left;
-    margin-left: 10vw;
+  float: left;
+  margin-left: 15vw;
+  margin-bottom: 5px;
 }
 .container {
     display: grid;
@@ -99,25 +135,74 @@ button {
 
 /* Selected cell will get a golden highlight */
 .chosen-item {
-    border: 1px solid rgb(138, 40, 150);
-    box-shadow: 1px 1px 8px 8px rgb(255, 238, 0);
+    border: 0.1vh solid rgb(138, 40, 150);
+    box-shadow: 0.1vh 0.1vh 0.8vh 0.8vh rgb(255, 238, 0);
     position: relative;
     z-index: 2;
+}
+.member-chosen-item {
+    border: 0.1vh solid rgb(138, 40, 150);
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    overflow: scroll;
+  }
+  :root {
+    padding: 0;
+}
+  .main {
+    margin: 0;
+  }
+  .grid {
+    margin: 0 2.5vw 0;
+    padding: 15vh 0 0;
+    float: none;
+  }
+  .container {
+    display: grid;
+    grid-template-rows: repeat(64, 1fr);
+    grid-template-columns: repeat(64, 1fr);
+    width: 90vw;
+    height: 90vw;
+  }
+  .grid-item {
+    border: 0.1vw solid #000000;
+  }
+  /* Selected cell will get a golden highlight */
+  .chosen-item {
+    border: 0.1vw solid rgb(138, 40, 150);
+    box-shadow: 0.1vw 0.1vw 0.8vw 0.8vw rgb(255, 238, 0);
+    position: relative;
+    z-index: 2;
+  }
+  .member-chosen-item {
+    border: 0.1vw solid rgb(138, 40, 150);
+    position: relative;
+    z-index: 1;
+  }
 }
 
 /* --------------------------------------- Colour palette */
 
-.colorPalette {
+.checkbox-disabled {
+  background-color: silver;
+  box-shadow: inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}
+@media screen and (min-width: 1001px) {
+  .colorPalette {
     float: left;
     margin-top: 10vw;
-    margin-left: 3vw;
+    margin-left: 5vw;
     width: 8vw;
     height: 30vw;
-}
-.colorPalette .title-bar {
+  }
+  .colorPalette .title-bar {
     text-align: left;
-}
-.colorPalette-container {
+  }
+  .colorPalette-container {
     display: grid;
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(2, 1fr);
@@ -127,36 +212,77 @@ button {
     margin-right: auto;
     margin-top: 2vw;
     margin-bottom: 1vw;
-}
-.colorPalette-container .grid-item {
+  }
+  .colorPalette-container .grid-item {
     border: 0.1vw solid #000000;
-}
-.colorPalette button {
+  }
+  .colorPalette button {
     width: 80%;
     margin-bottom: 1vw;
-}
-#checkbox-icon {
+  }
+  #checkbox-icon {
     height: 2vh;
-}
-#cross-icon {
+  }
+  #cross-icon {
     height: 2vh;
-}
-.checkbox-disabled {
-    background-color: silver;
-    box-shadow: inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+  }
+  .group-button {
+    display: none;
+  }
 }
 
-/* --------------------------------------- Side or top bar */
-
-.top-bar {
-    position: fixed;
-    width: 100%;
-    height: 12vh;
-    left: 0;
-    top: 0;
-    background-color: rgba(102, 102, 102, 0.476);
+@media screen and (max-width: 1000px) {
+  .colorPalette {
+    z-index: 3;
+    width: 85vw;
+    margin: 5vw 7.5vw 0;
+    bottom: 0;
+  }
+  .colorPalette .title-bar {
+    text-align: left;
+  }
+  .colorPalette-container {
+    float: left;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    width: 60vw;
+    height: 15vw;
+  }
+  .colorPalette button {
+    width: 15vw;
+    height: 6vw;
+    padding: 0;
+    margin-top: 0.5vw;
+    margin-left: 2vw;
+  }
+  #checkbox-icon {
+    height: 5vw;
+  }
+  #cross-icon {
+    height: 5vw;
+  }
+  .palette-clear {
+    clear: both;
+  }
+  .group-button {
+    display: auto;
+  }
 }
-.side-bar {
+
+/* ---------------------------------------  Sidebar or top bar */
+
+.hidden {
+display: none;
+}
+#google-logo {
+  width: 2vh;
+  height: 2vh;
+  margin-right: 1vh;
+}
+
+@media screen and (min-width: 1001px) {
+  .side-bar {
     height: 100%;
     width: 20vh;
     position: fixed;
@@ -167,79 +293,143 @@ button {
         rgba(252, 58, 220, 0.456),
         rgba(255, 251, 254, 0.608)
     );
-    /*background-color: rgba(251, 189, 224, 0.399);*/
     overflow-x: hidden;
     padding-top: 1vh;
-}
-.login-btn {
+    z-index: 2;
+  }
+  .login-btn {
     position: absolute;
     left: 2vh;
     padding: 2vh 0;
-}
-.tutorial-btn {
+  }
+  .tutorial-btn {
     position: absolute;
     bottom: 12vh;
     left: 2vh;
-}
-.logo img {
+  }
+  .logo img {
     position: absolute;
     left: 6vh;
     bottom: 2vh;
     width: 8vh;
     height: 8vh;
+  }
+  
 }
-#google-logo {
-    width: 2vh;
-    height: 2vh;
-    margin-right: 1vh;
+
+@media screen and (max-width: 1000px) {
+  .side-bar {
+    position: absolute;
+    width: 100%;
+    height: 12vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(102, 102, 102, 0.476);
+  }
+  .login-btn {
+    float: right;
+    padding: 4vh 0;
+    margin-right: 2vw;
+  }
+  .tutorial-btn {
+    float: left;
+    padding: 4vh 0;
+    margin-left: 2vw;
+  }
+  .logo img {
+    position: absolute;
+    margin: 2vw auto 0;
+    width: 8vh;
+    height: 8vh;
+  }
 }
-.hidden {
-    display: none;
-}
+
+
 /* --------------------------------------- Right sidebar - Group */
 
 .right-sidebar {
-    height: 100%;
-    width: 28vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    overflow-x: hidden;
-    padding-top: 1vh;
-    background-image: linear-gradient(
-        to top,
-        rgba(252, 58, 220, 0.456),
-        rgba(255, 251, 254, 0.608)
-    );
+  height: 100%;
+  width: 28vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  padding-top: 1vh;
+  background-image: linear-gradient(
+    to top,
+    rgba(252, 58, 220, 0.456),
+    rgba(255, 251, 254, 0.608)
+  );
+  z-index: 2;
+}
+.colour-container {
+  height: 2vh;
+  width: 2vh;
+  border: black 1px solid;
+  border-radius: 50%;
+  float: left;
+  margin-left: 1vw;
+}
+.group-member {
+  display: table;
+  margin-bottom: 1vw;
 }
 
-.colour-container {
+.group-member-team-page {
+  display: flex;
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+}
+.member-name {
+  float: right;
+  margin-left: 1vw;
+  font-family: "Press Start 2P" !important;
+  font-size: xx-small;
+}
+.group-title {
+  font-family: "Press Start 2P" !important;
+  font-size: medium;
+}
+
+@media screen and (max-width: 1000px){
+  .right-sidebar {
+    height: auto;
+    max-height: 70%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: auto;
+    padding-top: 1vh;
+    background-image: linear-gradient(
+      to top,
+      rgba(252, 58, 220, 0.916),
+      rgba(255, 251, 254, 0.9)
+    );
+  }
+  .group-member {
+    display: table;
+    margin-bottom: 2vw;
+  }
+  .member-name {
+    float: right;
+    margin-left: 1vw;
+    font-family: "Press Start 2P" !important;
+    font-size: x-small;
+  }
+  .colour-container {
     height: 2vh;
     width: 2vh;
     border-radius: 50%;
     float: left;
     margin-left: 1vw;
-}
-.group-member {
-    display: table;
-    margin-bottom: 1vw;
-}
-.member-name {
-    float: right;
-    margin-left: 1vw;
-    font-family: "Press Start 2P" !important;
-    font-size: xx-small;
-}
-.group-title {
-    font-family: "Press Start 2P" !important;
-    font-size: medium;
+  }
 }
 
 /* --------------------------------------- Dropdown menu */
 
 .dropdown-menu {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     min-width: 100px;
     padding: 0px 0px;
 }
@@ -256,6 +446,28 @@ button {
     width: 100%;
     text-align: left;
 }
+@media screen and (max-width: 1000px) {
+  .dropdown-menu {
+      position: fixed;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px !important;
+      padding: 32px 64px !important;
+  }
+  .dropdown-menu button {
+      font-size: 18px;
+      padding: 8px 12px;
+  }
+}
+@media screen and (min-width: 1001px) {
+  .dropdown-menu {
+      position: absolute;
+      z-index: 1;
+      min-width: 100px;
+      padding: 0px 0px;
+  }
+}
 
 /* --------------------------------------- Other ID:s and classes */
 
@@ -264,8 +476,185 @@ button {
     padding: 30vh 0;
 }
 
-.member-chosen-item {
-    border: 1px solid rgb(138, 40, 150);
-    position: relative;
-    z-index: 1;
+@media screen and (max-width: 1000px) {
+  #loading {
+    width: 90vw;
+    padding: 30vh 0;
+  }
 }
+
+.history-page {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: rgb(180, 180, 240);
+  width: 20vw;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: #999;
+}
+
+.card-subtitle.text-muted {
+  color: #999;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+/* --------------------------------------- Team/Group page */
+.group-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.team-page .window {
+  border-radius: 2px;
+  background-color: #edcbed;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+
+}
+/* The colourful bar at the top of a window */
+.team-page .title-bar {
+  background: linear-gradient(90deg, #d929b8, #f79ee7);
+  display: flex;
+  justify-content: center;
+}
+
+.team-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.team-page > div {
+  margin: 2vw;
+
+}
+#team-title {
+  font-family: "Press Start 2P" !important;
+  font-size: xx-large;
+}
+
+.team-page a {
+  padding: 1vw;
+}
+
+#create-group-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+
+}
+
+#create-group-form .title-bar {
+  width: 99%;
+}
+
+#create-group-form > * {
+  margin-bottom: 10px;
+}
+
+
+/* --------------------------------------- History page */
+
+.history-page {
+overflow-y: auto; 
+padding: 1vh 0;
+}
+
+.history-page .window {
+  margin: 1vh;
+}
+
+.posts-container {
+  justify-content: center;
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+/* --------------------------------------- About page */
+
+.about-page .window{
+  width: 40vw;
+  margin: 2vw
+  
+}
+
+.about-page {
+  padding: 1vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.about-page .title-bar {
+  background: linear-gradient(90deg, #d929b8, #f79ee7);
+  display: flex;
+  justify-content: center;
+}
+
+.about-page p {
+  font-size: medium;
+  padding: 1vw;
+  line-height: 20pt;
+  display: flex;
+  justify-content: center;
+}
+
+.about-page ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-weight: bold;
+}
+/* --------------------------------------- Invite page */
+
+.invite-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invite-page .window {
+    width: 50vw;
+}
+
+
+.invite-page .window button {
+  margin: 1vw
+
+}
+

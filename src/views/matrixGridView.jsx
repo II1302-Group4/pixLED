@@ -38,7 +38,7 @@ export default function matrixGridView(props) {
             onClick={clickOnLED}
             id={index}
             style={{
-              boxShadow: `1px 1px 8px 8px ${memberHasChosen.color}`,
+              boxShadow: `0.1vw 0.1vw 0.8vw 0.8vw ${memberHasChosen.color}`,
               backgroundColor: `${color}`,
             }}
             className="member-chosen-item"
@@ -70,25 +70,41 @@ export default function matrixGridView(props) {
     });
   };
 
+  const downloadImage = () => {
+    html2canvas(componentRef.current).then(async (canvas) => {
+      const screenshotUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.download = "grid.png";
+      link.href = screenshotUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
-    <div
-      className="window"
-      id="grid-window"
-      data-title="Select pixel"
-      data-intro="Select a pixel on the canvas that you want to modify "
-      data-step="1"
-    >
-      <div className="title-bar">
-        <div className="title-bar-text">PixLED grid</div>
-      </div>
-      <div className="window-body">
-        <div ref={componentRef} className="container">
-          {props.matrixGrid.map(LED)}
+    <>
+      <div
+        className="window"
+        data-title="Select pixel"
+        data-intro="Select a pixel on the canvas that you want to modify "
+        data-step="1"
+      >
+       {props.user? null: 
+        <div className="login-alert"><div>Login to participate</div></div>}
+        <div className="title-bar">
+          <div className="title-bar-text">PixLED grid</div>
         </div>
+        <div className="window-body">
+          <div ref={componentRef} className="container">
+            {props.matrixGrid.map(LED)}
+          </div>
+        </div>
+        {props.members[0]?.name == props.user?.name ? (
+          <button onClick={takeScreenshot}>Upload Grid State</button>
+        ) : null}
+        <button onClick={downloadImage}>Download Grid State</button>  
       </div>
-      {props.members[0]?.name == props.user?.name ? (
-        <button onClick={takeScreenshot}>Upload Grid State</button>
-      ) : null}
-    </div>
+    </>
   );
 }

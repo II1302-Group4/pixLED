@@ -3,6 +3,8 @@ import React from "react";
 
 function GroupMembers(props) {
   const [members, setMembers] = React.useState(props.model.members);
+  // const [name, getNames] = React.useState(props.model.)
+
   React.useEffect(wasCreatedACB, []);
 
   function observerACB() {
@@ -16,6 +18,14 @@ function GroupMembers(props) {
     }
     return isTakenDownACB;
   }
-  return <GroupMemberView members={members} />;
+
+  return (
+    <>
+      {members.length == 0? null: 
+      <div className="right-sidebar">
+        <GroupMemberView members={members} />
+      </div>}
+    </>
+  );
 }
 export default GroupMembers;

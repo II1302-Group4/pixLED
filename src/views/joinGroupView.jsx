@@ -3,28 +3,37 @@ import { useNavigate } from "react-router-dom";
 
 function JoinGroupView(props) {
   const navigate = useNavigate();
-  if (!props.currentUser) {
-    setTimeout(() => {
-      navigate("/");
-    }, 1500);
-    return <div>Please login and try again</div>;
+  
+
+  function rejectInvitation() {
+    props.rejectInvitation()
   }
+
+  function acceptInvitation() {
+    props.acceptInvitation()
+  }
+
+  console.log(props.groupName)
 
   if (props.currentUser.group) {
     setTimeout(() => {
       navigate("/team");
     }, 1500);
-    return <div>You are already a member of a group</div>;
   } else {
     return (
-      <div>
-        <h1>You have been invited to join Group {props.groupName}</h1>
-        <button onClick={() => props.acceptInvitation()}>
+      <div className="invite-page">
+      <div className="window">
+        <div className="title-bar">
+          <div className="title-bar-text">|</div>
+        </div>
+        <h3>You have been invited to join <br/>Group {props.groupName}</h3>
+        <button onClick={acceptInvitation}>
           Accept invitation
         </button>
-        <button onClick={() => props.rejectInvitation}>
+        <button onClick={rejectInvitation}>
           Decline invitation
         </button>
+      </div>
       </div>
     );
   }

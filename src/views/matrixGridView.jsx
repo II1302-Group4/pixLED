@@ -90,8 +90,11 @@ export default function matrixGridView(props) {
         data-intro="Select a pixel on the canvas that you want to modify "
         data-step="1"
       >
-       {props.user? null: 
-        <div className="login-alert"><div>Login to participate</div></div>}
+        {props.user ? null : (
+          <div className="login-alert">
+            <div>Login to participate</div>
+          </div>
+        )}
         <div className="title-bar">
           <div className="title-bar-text">PixLED grid</div>
         </div>
@@ -103,7 +106,7 @@ export default function matrixGridView(props) {
         {props.members[0]?.name == props.user?.name ? (
           <button onClick={takeScreenshot}>Upload Grid State</button>
         ) : null}
-        <button onClick={downloadImage}>Download Grid State</button>  
+        <button onClick={downloadImage}>Download Grid State</button>
       </div>
     </>
   );

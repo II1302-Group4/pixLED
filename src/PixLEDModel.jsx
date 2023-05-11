@@ -1,4 +1,9 @@
-import { getGroupName, getGroupMembers, getPosts } from "./firebaseModel";
+import {
+  getGroupName,
+  getGroupMembers,
+  getPosts,
+  leaveTeam,
+} from "./firebaseModel";
 
 class PixLEDModel {
   constructor(gridArray) {
@@ -41,7 +46,7 @@ class PixLEDModel {
   }
 
   /**
-   * Opens/closes group list in the mobile version 
+   * Opens/closes group list in the mobile version
    */
   openMobileGroup() {
     this.openMGroup = this.openMGroup ? false : true;
@@ -75,10 +80,9 @@ class PixLEDModel {
       const user = {
         id: this.currentUser.id,
         name: this.currentUser.name,
-        group: uuid
-      }
+        group: uuid,
+      };
       this.setCurrentUser(user);
-      this.notifyObservers();
     } catch (error) {
       console.log(error);
     }
@@ -149,10 +153,11 @@ class PixLEDModel {
    * @returns {string} The group name
    */
   async getGroupName() {
-    return await getGroupName(this.currentUser.group);
+    if (this.currentUser && this.currentUser.group)
+      return await getGroupName(this.currentUser.group);
   }
 
-  async getGroupNameToShowOnInvitationPage(id)  {
+  async getGroupNameToShowOnInvitationPage(id) {
     return await getGroupName(id);
   }
 
@@ -172,6 +177,18 @@ class PixLEDModel {
 
   async getPosts() {
     return await getPosts();
+  }
+
+  async leaveTeam() {
+    await leaveTeam(this.currentUser.group, this.currentUser.name);
+    this.setMembers([]);
+    const user = {
+      id: this.currentUser.id,
+      name: this.currentUser.name,
+      group: null,
+    };
+    this.setCurrentUser(user);
+    this.notifyObservers();
   }
 
   notifyObservers(payload) {

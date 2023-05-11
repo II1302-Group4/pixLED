@@ -8,6 +8,7 @@ import {
   onValue,
   push,
   update,
+  remove,
 } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
@@ -142,14 +143,16 @@ function updateModelFromFirebase(model) {
           id: user.uid,
           group: userInDatabase.val().group,
         });
-        const groups = await get(ref(db, "groups/"));
-        const group = Object.entries(groups.val()).find(
-          (group) => group[1].groupId === userInDatabase.val().group
-        );
-        const groupRef = ref(db, "groups/" + group[0]);
-        onValue(groupRef, (firebaseData) => {
-          model.setMembers(Object.values(firebaseData.val().members));
-        });
+        if (userInDatabase.val().group) {
+          const groups = await get(ref(db, "groups/"));
+          const group = Object.entries(groups.val()).find(
+            (group) => group[1].groupId === userInDatabase.val().group
+          );
+          const groupRef = ref(db, "groups/" + group[0]);
+          onValue(groupRef, (firebaseData) => {
+            model.setMembers(Object.values(firebaseData.val().members));
+          });
+        }
       }
     }
   });
@@ -190,6 +193,27 @@ async function getPosts() {
   return Object.values(post.val());
 }
 
+async function leaveTeam(groupId, name) {
+  const groups = await get(ref(db, "groups/"));
+
+  const group = Object.entries(groups.val()).find(
+    (group) => group[1].groupId === groupId
+  );
+
+  const membersArray = await get(ref(db, `groups/${group[0]}/members`));
+
+  const member = Object.entries(membersArray.val()).find(
+    (member) => member[1].name === name
+  );
+
+  const memberRef = ref(db, `groups/${group[0]}/members/${member[0]}`);
+  await remove(memberRef);
+
+  update(ref(db, "users/" + auth.currentUser.uid), {
+    group: null,
+  });
+}
+
 export {
   auth,
   firebaseModelPromise,
@@ -198,4 +222,5 @@ export {
   getGroupName,
   getGroupMembers,
   getPosts,
+  leaveTeam,
 };

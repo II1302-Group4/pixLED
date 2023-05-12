@@ -54,6 +54,7 @@ function colorPaletteView(props) {
             className={(props.chosenLED && props.chosenColor && props.user) ? "checkbox-enabled" : "checkbox-disabled"}
             disabled={!(props.chosenLED && props.chosenColor && props.user) || props.timer != props.timeout}
           >
+            {/* {console.log("timer: " + props.timer + "... timeout: " + props.timeout)} */}
             {
             props.timer == props.timeout ? (
               props.chosenColor && props.chosenLED && props.user? (

@@ -29,11 +29,12 @@ function colorPalettePresenter(props) {
   const [timer, setTimer] = React.useState(null);
   const [submit, setSubmit] = React.useState(false);
   const timeoutId = React.useRef(null);
-  const [timeout] = React.useState(4);
+  const [timeout] = React.useState(15);
   const [user, setCurrentUser] = React.useState(props.model.currentUser);
 
   const countTimer = React.useCallback(() => {
     if (timer <= 0) {
+      // console.log("Hiii");
       setTimer(timeout);
       localStorage.setItem("timer", timeout);
       setSubmit(false);
@@ -60,6 +61,8 @@ function colorPalettePresenter(props) {
   }
 
   function wasCreatedACB() {
+    // console.log(localStorage.getItem("timer"));
+    localStorage.setItem("timer", timeout);
     if (localStorage.getItem("timer") < timeout) setSubmit(true);
     setTimer(localStorage.getItem("timer"));
     props.model.addObserver(observerACB);

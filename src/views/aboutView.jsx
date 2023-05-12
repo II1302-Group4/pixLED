@@ -80,6 +80,13 @@ function AboutView() {
            If you have a team and you are its leader, you can click on the button to the bottom of the grid, saying "Upload Grid State" and the current state will be saved. But all other people can see the taken snapshot and download it. 
         </b>
       </p>
+      -----------------------------------------------
+      <h4>Why is dark theme doesn't work properly?</h4>
+      <p>
+        <b>
+           PixLED is a project with a lot of different colours involved, mostly light ones. Forced dark theme will be a problem to see the real picture and the beatiful vaporwave style, so please, remove your dark shades and watch the art with your bare eyes.
+        </b>
+      </p>
     </div>
     </div>
   );

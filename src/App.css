@@ -4,6 +4,7 @@
   text-align: center;
   cursor: url("assets/small-pink.png"), auto;
   font-family: "Press Start 2P" !important;
+  color-scheme: light;
 }
 html {
     margin: 0;

@@ -81,10 +81,10 @@ function AboutView() {
         </b>
       </p>
       -----------------------------------------------
-      <h4>Why is dark theme doesn't work properly?</h4>
+      <h4>Why doesn't dark theme work properly?</h4>
       <p>
         <b>
-           PixLED is a project with a lot of different colours involved, mostly light ones. Forced dark theme will be a problem to see the real picture and the beatiful vaporwave style, so please, remove your dark shades and watch the art with your bare eyes.
+           PixLED is a project with a lot of different colours involved, mostly light ones. Forced dark theme will be a problem to see the real picture and the beatiful vaporwave style, so please, remove your dark shades and enjoy the art with your bare eyes.
         </b>
       </p>
     </div>

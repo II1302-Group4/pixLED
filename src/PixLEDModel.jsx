@@ -11,7 +11,7 @@ class PixLEDModel {
     this.gridArray = gridArray;
     this.paletteColor = null;
     this.chosenLED = null;
-    this.timer = 1;
+    this.timer = 30;
     this.currentUser = null;
     this.groupNameError = null;
     this.groupMembers = null;

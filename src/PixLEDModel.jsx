@@ -10,9 +10,9 @@ class PixLEDModel {
   constructor(gridArray) {
     this.observers = [];
     this.snake = [10]; // snake[9] is the head
-    this.movementDir = "right";
+    this.movementDir = 1; // 1-2-3-4, right-down-left-up
     this.gameIsOn = false;
-    this.arrayCopy = []; 
+    this.arrayCopy = []; // Copy of the grid array to restore the grid after the game
     this.gridArray = gridArray;
     this.paletteColor = null;
     this.chosenLED = null;
@@ -248,7 +248,7 @@ class PixLEDModel {
     let temp = this.snake[9];
     let temp1 = 0;
     switch(this.movementDir){
-      case "up":
+      case 4:
         this.snake[9] -= 64;
         if(this.snake[9] < 0) {
           this.gameIsOn = false;
@@ -257,7 +257,7 @@ class PixLEDModel {
           return;
         }
         break;
-      case "down":
+      case 2:
         this.snake[9] += 64;
         if(this.snake[9] > 4095) {
           this.gameIsOn = false;
@@ -266,7 +266,7 @@ class PixLEDModel {
           return;
         }
         break;
-      case "right":
+      case 1:
         this.snake[9]++;
         if(this.snake[9] % 64 === 63) {
           this.gameIsOn = false;
@@ -275,7 +275,7 @@ class PixLEDModel {
           return;
         }
         break;
-      case "left":
+      case 3:
         this.snake[9]--;
         if(this.snake[9] % 64 === 0) {
           this.gameIsOn = false;
@@ -288,11 +288,21 @@ class PixLEDModel {
         break;
     }
 
+
     for(let i = 8; i >= 0; i--){
       temp1 = this.snake[i];
       this.snake[i] = temp;
       temp = temp1;
     }
+    for(let i = 0; i < 9; i++){
+      if(this.snake[9] === this.snake[i]){
+        this.gameIsOn = false;
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        this.gameOver();
+        return;
+      }
+    } 
+
     for(let i = 0; i < 10; i++){
       this.gridArray[this.snake[i]] = "#6100B3"; 
     }

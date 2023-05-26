@@ -54,29 +54,32 @@ function matrixGridPresenter(props) {
   }
 
   function movementChange(key){
+    let dir;
     switch(key){
       case 'w':
       case 'ArrowUp':
-        props.model.movementDir = "up";
+        dir = 4;
         break;
       case 's':
       case 'ArrowDown':
-        props.model.movementDir = "down";
+        dir = 2;
         break;
       case 'a':
       case 'ArrowLeft':
-        props.model.movementDir = "left";
+        dir = 3;
         break;
       case 'd':
       case 'ArrowRight':
-        props.model.movementDir = "right";
+        dir = 1;
         break;
       default:
         break;
     }
+    if(dir % 2 === props.model.movementDir % 2){
+      return;
+    }
+    props.model.movementDir = dir;
     console.log("The movement of the snake has changed!")
-    // props.model.snakeUpdate();
-    // props.model.selectLED(Math.floor(Math.random() * 10) + 4096);
   }
 
   return (

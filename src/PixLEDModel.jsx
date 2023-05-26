@@ -13,6 +13,7 @@ class PixLEDModel {
     this.movementDir = 1; // 1-2-3-4, right-down-left-up
     this.gameIsOn = false;
     this.arrayCopy = []; // Copy of the grid array to restore the grid after the game
+    this.hideMarks = false;
     this.gridArray = gridArray;
     this.paletteColor = null;
     this.chosenLED = null;
@@ -240,6 +241,7 @@ class PixLEDModel {
       this.snake[i] = i;
     } 
     this.gameIsOn = true;
+    this.hideMarks = true;
     this.selectLED(Math.floor(Math.random() * 100) + 4170);
     console.log("ORIG: " + this.gridArray);
     console.log("COPY: " + this.arrayCopy);
@@ -335,6 +337,7 @@ class PixLEDModel {
 
     await new Promise(resolve => setTimeout(resolve, 5000));
     this.restoreGridState();
+    this.hideMarks = false;
     this.selectLED(Math.floor(Math.random() * 100) + 4170);
     console.log("The grid is restored");
 

@@ -33,7 +33,7 @@ export default function matrixGridView(props) {
           memberHasChosen = member;
         }
       });
-      if (memberHasChosen) {
+      if (memberHasChosen && !props.model.hideMarks) {
         return (
           <div
             key={index}

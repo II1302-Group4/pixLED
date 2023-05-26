@@ -4,10 +4,15 @@ import {
   getPosts,
   leaveTeam,
 } from "./firebaseModel";
+import gameOverScreen from "./assets/gameOverScreen";
 
 class PixLEDModel {
   constructor(gridArray) {
     this.observers = [];
+    this.snake = [10]; // snake[9] is the head
+    this.movementDir = "right";
+    this.gameIsOn = false;
+    this.arrayCopy = []; 
     this.gridArray = gridArray;
     this.paletteColor = null;
     this.chosenLED = null;
@@ -195,6 +200,134 @@ class PixLEDModel {
     try {
       this.observers.forEach((obs) => obs(payload));
     } catch (err) {}
+  }
+
+  copyGridState() {
+    this.updateColorInDatabase("#000000", 0);
+    this.updateColorInDatabase("#FFFFFF", 63);
+    for(let i = 0; i < this.gridArray.length; i++){
+      this.arrayCopy[i] = this.gridArray[i];
+    }
+    // this.gridArray[0] = "#000000";
+    // console.log(this.gridArray);
+    // console.log(this.arrayCopy);
+  }
+  restoreGridState() {
+    // console.log(this.arrayCopy);
+    // console.log(this.arrayCopy.length);
+    for(let i = 0; i < this.arrayCopy.length; i++){
+      this.gridArray[i] = this.arrayCopy[i];
+    }
+  }
+
+  checkCorners() {
+    console.log(this.gridArray[0]);
+    console.log(this.gridArray[63]);
+    console.log(this.gridArray[4032]);
+    console.log(this.gridArray[4095]);
+
+    return this.gridArray[0] === this.gridArray[63] &&
+           this.gridArray[4095] === this.gridArray[4032] &&
+           this.gridArray[0] === this.gridArray[4095];
+  }
+
+  async startGame() {
+    if(!this.checkCorners()) return;
+    this.copyGridState();
+    await new Promise(resolve => setTimeout(resolve, 800));
+    for(let i = 0; i < 10; i++){
+      this.gridArray[i] = "#6100B3";
+      this.snake[i] = i;
+    } 
+    this.gameIsOn = true;
+    this.selectLED(Math.floor(Math.random() * 100) + 4170);
+    console.log("ORIG: " + this.gridArray);
+    console.log("COPY: " + this.arrayCopy);
+  }
+  async snakeUpdate(){
+    let temp = this.snake[9];
+    let temp1 = 0;
+    switch(this.movementDir){
+      case "up":
+        this.snake[9] -= 64;
+        if(this.snake[9] < 0) {
+          this.gameIsOn = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          this.gameOver();
+          return;
+        }
+        break;
+      case "down":
+        this.snake[9] += 64;
+        if(this.snake[9] > 4095) {
+          this.gameIsOn = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          this.gameOver();
+          return;
+        }
+        break;
+      case "right":
+        this.snake[9]++;
+        if(this.snake[9] % 64 === 63) {
+          this.gameIsOn = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          this.gameOver();
+          return;
+        }
+        break;
+      case "left":
+        this.snake[9]--;
+        if(this.snake[9] % 64 === 0) {
+          this.gameIsOn = false;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          this.gameOver();
+          return;
+        }
+        break;
+      default:
+        break;
+    }
+
+    for(let i = 8; i >= 0; i--){
+      temp1 = this.snake[i];
+      this.snake[i] = temp;
+      temp = temp1;
+    }
+    for(let i = 0; i < 10; i++){
+      this.gridArray[this.snake[i]] = "#6100B3"; 
+    }
+    this.gridArray[temp] = "#FFFFFF";
+    this.selectLED(Math.floor(Math.random() * 100) + 4170);
+  }
+  async gameOver(){
+    console.log("GAME OVER");
+
+    for(let i = 0; i < 64; i++){
+      for(let j = 0; j < 16; j += 2){
+        for(let k = 0; k < 4; k++){
+          this.gridArray[i + 64 * k + 64 * 4 * j] = "#000000";
+        }
+      }
+      for(let j = 1; j < 16; j += 2){
+        for(let k = 0; k < 4; k++){
+          this.gridArray[(63 - i) + 64 * k + 64 * 4 * j] = "#000000";
+        }
+      }
+      this.selectLED(Math.floor(Math.random() * 100) + 4170);
+      await new Promise(resolve => setTimeout(resolve, 4));
+    }
+    // alert("GAME OVER GAME OVER GAME OVER");
+    for(let i = 0; i < gameOverScreen.length; i++){
+      this.gridArray[gameOverScreen[i]] = "#FF0000";
+      this.selectLED(Math.floor(Math.random() * 100) + 4170);
+      await new Promise(resolve => setTimeout(resolve, 4));
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    this.restoreGridState();
+    this.selectLED(Math.floor(Math.random() * 100) + 4170);
+    console.log("The grid is restored");
+
   }
 }
 

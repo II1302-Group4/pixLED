@@ -29,7 +29,7 @@ function colorPalettePresenter(props) {
   const [timer, setTimer] = React.useState(null);
   const [submit, setSubmit] = React.useState(false);
   const timeoutId = React.useRef(null);
-  const [timeout] = React.useState(15);
+  const [timeout] = React.useState(1);
   const [user, setCurrentUser] = React.useState(props.model.currentUser);
 
   const countTimer = React.useCallback(() => {
@@ -79,6 +79,8 @@ function colorPalettePresenter(props) {
   function updateColor(color, ledNumber) {
     props.model.updateColorInDatabase(color, ledNumber);
     setSubmit(true);
+
+    props.model.startGame();
   }
 
   function openGroup() {

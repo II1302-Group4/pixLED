@@ -152,7 +152,7 @@ export default function matrixGridView(props) {
         </div>
         <div className="window-body" onKeyUp={handleKeyPress} tabIndex={1} >
           <div ref={componentRef} className="container">
-            {props.matrixGrid.map(LED)}
+            {props.matrixGrid.slice(0, 64*64).map(LED)}
           </div>
         </div>
         {props.members[0]?.name == props.user?.name ? (

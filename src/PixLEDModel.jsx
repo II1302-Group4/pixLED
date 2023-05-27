@@ -254,7 +254,7 @@ class PixLEDModel {
         this.snake[9] -= 64;
         if(this.snake[9] < 0) {
           this.gameIsOn = false;
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise(resolve => setTimeout(resolve, 3000));
           this.gameOver();
           return;
         }
@@ -263,7 +263,7 @@ class PixLEDModel {
         this.snake[9] += 64;
         if(this.snake[9] > 4095) {
           this.gameIsOn = false;
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise(resolve => setTimeout(resolve, 3000));
           this.gameOver();
           return;
         }
@@ -272,7 +272,7 @@ class PixLEDModel {
         this.snake[9]++;
         if(this.snake[9] % 64 === 63) {
           this.gameIsOn = false;
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise(resolve => setTimeout(resolve, 3000));
           this.gameOver();
           return;
         }
@@ -281,7 +281,7 @@ class PixLEDModel {
         this.snake[9]--;
         if(this.snake[9] % 64 === 0) {
           this.gameIsOn = false;
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise(resolve => setTimeout(resolve, 3000));
           this.gameOver();
           return;
         }

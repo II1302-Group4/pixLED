@@ -29,7 +29,7 @@ function colorPalettePresenter(props) {
   const [timer, setTimer] = React.useState(null);
   const [submit, setSubmit] = React.useState(false);
   const timeoutId = React.useRef(null);
-  const [timeout] = React.useState(1);
+  const [timeout] = React.useState(30);
   const [user, setCurrentUser] = React.useState(props.model.currentUser);
 
   const countTimer = React.useCallback(() => {
